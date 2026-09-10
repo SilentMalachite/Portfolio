@@ -1,0 +1,100 @@
+# SilentMalachite Portfolio
+
+福祉×IT・アクセシビリティを軸にした、転職向けポートフォリオです。HTML/CSSによる静的サイトとして実装しています。
+
+## ローカル表示
+
+プロジェクトのルートで次を実行します。Python 3が必要です。
+
+```sh
+python3 -m http.server 8765 --bind 127.0.0.1 --directory site
+```
+
+[ローカルプレビュー](http://127.0.0.1:8765/)を開きます。サーバーの終了は `Ctrl+C`。この簡易プレビューはドメインルートで表示します。実際の公開先は `/Portfolio/` 配下で、今回のブラウザ検証ではその配置も確認しています。
+
+## 構成と編集箇所
+
+| ファイル | 役割 |
+| --- | --- |
+| `site/index.html` | 自己紹介、主要4事例、補足3件、関連2件、採用案内。原稿の正本 |
+| `site/assets/styles.css` | 配色・レイアウト・レスポンシブ・フォーカス・印刷表示 |
+| `site/assets/favicon.svg` | 2つの経路をつなぐ独自のモノグラム。ヘッダー・フッターでも使用 |
+| `site/assets/paths.svg` | 「理解と技術をつなぐ」ことを表すヒーロー用の図版 |
+| `site/assets/ogp.svg` / `ogp.png` | SNS共有用の原稿と1200×630の配信用画像 |
+| `site/404.html` | 公開トップに戻るリンクを備えた404ページ |
+| `scripts/check_site.py` | 公開ファイル、リンク・アンカー、メタデータ、サイズの静的検査 |
+| `.github/workflows/pages.yml` | 静的検査後に `site/` だけをGitHub Pagesへ公開 |
+| `AGENTS.md` / `SPEC.md` | 作業規約と製品仕様・受け入れ条件 |
+
+クライアントJavaScript、フレームワーク、Webフォント、トラッカー、外部画像、ビルド用の依存インストールは不要です。作品の色付き図版はこのポートフォリオ用の装飾で、実際のアプリ画面や各作品の既存公式ロゴではありません。
+
+OGPのPNGはSVGから生成済みです。変更時は、SVGの日本語フォントが正しく表示される環境で1200×630のPNGへ書き出し、文字欠けを目視確認してください。今回の生成にはローカルのSharpを使用しましたが、閲覧・公開時の依存には含まれません。
+
+## 確認コマンド
+
+```sh
+python3 scripts/check_site.py
+```
+
+標準ライブラリのみを使用します。ページ内リンク・画像参照、A11yLabの直リンク2箇所、OGP、404の戻り先、公開ファイルの合計1MB以内などを検査します。外部リンク先の可用性、見た目、読み上げの品質を保証するものではありません。
+
+## GitHub Pagesへの公開
+
+想定公開先は `https://silentmalachite.github.io/Portfolio/` です。今回、リポジトリ作成、Git初期化、コミット、push、Pagesの有効化は行っていません。
+
+公開時に次を確認します。
+
+1. 公開リポジトリ名を `SilentMalachite/Portfolio`、公開ブランチを `main` とする。別名にする場合はHTMLのcanonical・OGP、404のリンク、検査スクリプトの `BASE` と仕様を同時に変更する。
+2. GitHubの Settings → Pages → Build and deployment → Source で **GitHub Actions** を選ぶ。
+3. 公開用原稿と実際の連絡方法を確認したうえで `main` にpushする。
+4. `Publish portfolio to GitHub Pages` の成功後、公開URLでトップ、画像・CSS、A11yLabへのリンク、存在しないパスの404を確認する。
+
+以後の `main` へのpushは自動公開を伴います。ワークフローは手動起動にも対応しますが、deployは `main` のみに限定しています。公開権限はdeployジョブに限定し、公式Actionsは確認したcommit SHAに固定しています。旧状態へ戻す際は対象の変更をrevertして `main` へ反映し、再公開結果を確認します。
+
+公開artifactの対象は `site/` です。README・SPEC・検査スクリプト・作業記録はWebサイトのartifactには含めません。ただし公開GitHubリポジトリにコミットしたファイルはGitHub上では閲覧可能です。応募者の私的事情・秘密情報を管理文書へ追記しないでください。
+
+## 原稿の出典
+
+確認日: **2026-09-10**。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
+
+| 対象 | 確認した公開資料 |
+| --- | --- |
+| A11yLab | [サイト](https://silentmalachite.github.io/A11yLab/)、[要約筆記と制作背景](https://silentmalachite.github.io/A11yLab/hearing/2026-01-03-summaryapp/)、[キーボード操作](https://silentmalachite.github.io/A11yLab/physical/2026-01-02-keyboard-nav/)、[字幕](https://silentmalachite.github.io/A11yLab/hearing/2026-01-01-captions/)、[コントラスト](https://silentmalachite.github.io/A11yLab/visual/2026-01-01-color-contrast/) |
+| SummaryTalk | [README](https://github.com/SilentMalachite/SummaryTalk#readme) |
+| AlchemIIIF | [README](https://github.com/SilentMalachite/AlchemIIIF#readme)。考古学の専門性と福祉をつなぐ掲載意図は本人の指定 |
+| OmniArchive | [README](https://github.com/SilentMalachite/OmniArchive#readme) |
+| agent-review-ts | [README](https://github.com/SilentMalachite/agent-review-ts#readme) |
+| Hirundo | [README](https://github.com/SilentMalachite/Hirundo#readme) |
+| Kappan | [README](https://github.com/SilentMalachite/Kappan#readme) |
+| BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
+| MonoOto | [README](https://github.com/SilentMalachite/MonoOto#readme) |
+
+## 公開前に本人が具体化できる項目
+
+現状は公開情報で分かる制作物と設計を説明しています。各作品の詳細な担当分担、職務経歴、希望職種、公開してよい連絡先は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
+
+連絡先が未指定のため、採用案内には「応募書類・採用サービスの連絡先」を使う案内を置いています。直接スカウトを受けたい場合は、公開用として指定したメール等に差し替えてください。
+
+## 検証記録
+
+確認日: 2026-09-10。
+
+- `python3 scripts/check_site.py`: 成功。公開ファイル7件、約117KB。公開用tarにも管理文書が含まれないことを確認。
+- Chrome / Playwright WebKit 26.5: 幅1440・768・390・320pxで横方向のはみ出しなし、全画像を読み込み。JavaScriptを無効化した状態で確認。
+- 全32リンクをキーボードで巡回し、3pxのフォーカス表示を確認。WebKitはmacOSのリンク移動に合わせOption+Tabを使用。ページ内16リンクは、スキップリンクをキーボード、残りをクリックして到達先を確認。
+- 計算済みフォントサイズを2倍にする文字拡大検査でも、320px幅で横方向のはみ出しなし。400%ズームに相当する320 CSS pxのリフローを確認。ただしブラウザUIのズーム操作そのものは未実施。
+- 装飾を除く表示テキストについて、計算済み色と背景からコントラストを検査。通常文字4.5:1、大きな文字3:1の目標を確認。採用パネルのフォーカス色は明色に修正済み。
+- ヘッダーのロゴは文字拡大時に折り返すよう修正。PC・モバイルの画面キャプチャ、各セクションとOGP画像を目視確認。
+- 外部リンク14件はHTTP 200。ネットワーク状態やリンク先の変更によって将来の到達性は変わり得る。
+- ChromeのA4印刷PDFを確認。本文・主要事例・採用案内を含み、テキスト領域がページ外へはみ出さないことを検査。
+- 独立した静的レビューでコピー、主要導線、公開artifact範囲を再確認。
+
+**未実施**: GitHub Actions本番実行、GitHub Pagesでの実公開・任意パスの404、Safariアプリ本体、VoiceOverによる実際の読み上げ、実機スマートフォンでの操作。WebKitの検証はSafariアプリ本体の検証ではありません。WCAG全体への適合を宣言するものではありません。
+
+主要事例の細かな制作分担は本人の確認待ちであり、現状は公開資料から分かる取り組みの紹介です（SPEC C12の担当詳細）。サイト本体の制作は完了していますが、公開と応募用プロフィールの具体化は別段階です。
+
+### AlchemIIIFへの主要事例差し替え（2026-09-10）
+
+本人の指定により、TsumugiをAlchemIIIFへ差し替えました。考古学の専門家として文化財のデジタル化と就労継続支援の仕事づくりをつなぐ試みを明記し、関連アンカー・図版・紹介文・出典を更新しています。上記の全体検証は初版実装時の記録です。
+
+差し替え後は静的検査を再実行し、Chrome・WebKitの1440 / 768 / 320pxと320pxでの文字200％拡大で横方向のはみ出しがないことを確認しました。新しい内部リンク2件の移動、外部リンクの配置、旧リンクの除去を検査し、PC・モバイルの事例カードを目視確認しています。AlchemIIIFの公開リポジトリとローカルプレビューはHTTP 200でした。実公開と支援技術による検証は未実施です。
