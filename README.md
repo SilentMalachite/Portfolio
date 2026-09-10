@@ -66,8 +66,8 @@ python3 scripts/check_site.py
 | AlchemIIIF | [README](https://github.com/SilentMalachite/AlchemIIIF#readme)。考古学の専門性と福祉をつなぐ掲載意図は本人の指定 |
 | OmniArchive | [README](https://github.com/SilentMalachite/OmniArchive#readme) |
 | agent-review-ts | [README](https://github.com/SilentMalachite/agent-review-ts#readme) |
-| Hirundo | [README](https://github.com/SilentMalachite/Hirundo#readme) |
-| Kappan | [README](https://github.com/SilentMalachite/Kappan#readme) |
+| Tsumugi | [README](https://github.com/SilentMalachite/Tsumugi#readme)。記録・工賃計算と請求機能の未完成範囲を確認 |
+| Ayumi | [README](https://github.com/SilentMalachite/Ayumi#readme)。個別支援計画・支援記録、PC1台とLANの構成、請求機能は対象外と確認 |
 | BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
 | MonoOto | [README](https://github.com/SilentMalachite/MonoOto#readme) |
 
@@ -117,3 +117,7 @@ python3 scripts/check_site.py
 英語版は `site/en/index.html` に配置し、日本語版と共通CSS・図版を使います。ヘッダーとフッターの言語リンクで往復でき、ブラウザ言語による自動転送はしません。日英それぞれのcanonical・hreflang・OGPを設定し、英語用OGP画像と日英併記の404を用意しています。日本語原稿の更新時は、英語版の事例・状態注記・リンクも同時に確認してください。
 
 追加時のローカル検証: `python3 scripts/check_site.py` 成功（HTML3ページ、公開ファイル10件、約200KB）。未追加の英語ページ・画像・言語リンクを検査が検出することも先に確認しました。ChromeとWebKitで日英両版の1440 / 768 / 320px、320pxで文字200％拡大、画像読込、通常アンカー、ヘッダー・フッターからの言語切替、キーボードによるスキップリンクを確認。英語版全体・PCとモバイルのトップ・英語OGPを目視確認しました。日英のIDと外部リンク先も一致しています。英語版のVoiceOver・実機スマートフォン・印刷表示は未検証です。公開処理はmainへのpushで実行し、結果はGitHub Actionsの履歴で確認できます。
+
+### 福祉現場に近い制作物への差し替え（2026-09-10）
+
+Hirundo・KappanをTsumugi・Ayumiへ日英同時に差し替え、両方に開発中の表示を追加。上記2件の公開READMEを再確認し、Tsumugiの請求機能の未完成範囲とAyumiの請求対象外を紹介文に反映しました。静的検査成功、Chrome・WebKitの日英両版で1440 / 768 / 320pxと文字200％拡大の横方向のはみ出しなし、新リンク・状態表示・旧リンク除去を確認。PCとモバイルの対象セクションを目視確認しました。各アプリ自体の動作・導入効果を検証した記録ではありません。

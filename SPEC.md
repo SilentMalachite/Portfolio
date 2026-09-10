@@ -77,13 +77,13 @@ A11yLab を先頭に、課題への理解、実装、考古学と福祉の接点
 
 AIとの協働は実際の制作方法に沿って記載する。A11yLab は公開トップでもAIとの共創を掲げている。本人が行った課題設定・判断・確認を具体化し、他作品の制作工程へ一律に当てはめない。
 
-### 3.2 技術力を補足する3件
+### 3.2 福祉現場と開発・検証を補足する3件
 
 以下は主要事例の後に各100〜180字程度で紹介する。福祉との関係を無理に付け足さず、開発・検証の幅を示す。
 
 - [agent-review-ts](https://github.com/SilentMalachite/agent-review-ts#readme): 別の AI にレビューを依頼し、指摘を主担当が検証する TypeScript CLI。[AgentReview](https://github.com/SilentMalachite/AgentReview) の移植版と明記する。
-- [Hirundo](https://github.com/SilentMalachite/Hirundo#readme): Swift 製の静的サイト生成器。Markdown、テンプレート、ライブリロードを扱う。
-- [Kappan](https://github.com/SilentMalachite/Kappan#readme): 日本語のブログやページを生成する C++20 の道具。単一実行ファイルという配布設計を紹介する。
+- [Tsumugi](https://github.com/SilentMalachite/Tsumugi#readme): 開発中。就労継続支援B型の記録・工賃計算を扱うオフラインアプリ。C# / Avalonia / SQLite。端末内での情報管理と訂正履歴を説明し、請求計算・帳票・CSV生成は未完成と明記する。
+- [Ayumi](https://github.com/SilentMalachite/Ayumi#readme): 開発中。就労継続支援B型の個別支援計画・支援記録・出欠・期限管理を扱う業務支援アプリ。Elixir / Phoenix / SQLite。PC1台とLANを前提とする構成と履歴を残す設計を説明する。請求機能は対象外。
 
 ### 3.3 関連する取り組み2件
 
@@ -94,7 +94,7 @@ AIとの協働は実際の制作方法に沿って記載する。A11yLab は公�
 
 以下25件は前版で存在と公開メタデータを確認した。v1 の個別紹介には含めず、「すべてのリポジトリ」リンクで到達できるようにする。追加時は現行 README と公開状態を読む。
 
-`MrEric`、`AgentReview`、`SummaryTalk.Win`、`Katachi.Win`、`Utsushi.Win`、`Katachi`、`Utushi`、`Ayumi`、`ArchaeologyRush`、`Tsumugi`、`img2png`、`pdf2png`、`oxipdf`、`IIIF_Elixir_lib`、`Scriptoris`、`working_dashboard`、`Shino`、`agens`、`ZapEditor`、`Shiori-editor`、`HouseholdBook`、`Waylight`、`local-ai-chat`、`PixelCraftStudio`、`Household-bunget-app`。
+`MrEric`、`AgentReview`、`SummaryTalk.Win`、`Katachi.Win`、`Utsushi.Win`、`Katachi`、`Utushi`、`Hirundo`、`ArchaeologyRush`、`Kappan`、`img2png`、`pdf2png`、`oxipdf`、`IIIF_Elixir_lib`、`Scriptoris`、`working_dashboard`、`Shino`、`agens`、`ZapEditor`、`Shiori-editor`、`HouseholdBook`、`Waylight`、`local-ai-chat`、`PixelCraftStudio`、`Household-bunget-app`。
 
 fork の `homebrew-tap` は独自作品の選定から除外する。名称の類似だけで移植関係を断定しない。
 
@@ -141,7 +141,7 @@ A11yLabへのリンクは必須とする。主要事例には「A11yLab — ア�
 
 ## 6. 技術構成
 
-v1 は手書きの HTML/CSS とする。主要4件・補足3件・関連2件を含む1ページでは、ビルドシステムやクライアント描画を導入するより、公開する内容を直接管理する方が小さく保てる。Hirundo・Kappan は作品として紹介し、このサイトの生成器への採用は初期要件に含めない。
+v1 は手書きの HTML/CSS とする。主要4件・補足3件・関連2件を含む1ページでは、ビルドシステムやクライアント描画を導入するより、公開する内容を直接管理する方が小さく保てる。このサイトにはサイト生成器を採用しない。
 
 実装したファイルの構成:
 
@@ -243,3 +243,7 @@ CSS、画像、favicon は `./assets/...` で参照する。`/assets/...` のよ
 英訳では主要4件・補足3件・関連2件、本人の考古学の専門性、AIとの協働、開発・実験・検証待ちの区別を保持する。就労継続支援は日本の障害者向け就労支援の文脈を説明し、他国の制度や一般就労の実績へ読み替えない。リンク先が日本語の場合は英語読者に伝える。日本語版の変更時は英語版も照合・更新し、架空の経歴・成果を足さない。
 
 受け入れ条件: 両言語のリンク切替とアンカー、英語OGP、3ページの再帰的静的検査、JavaScript無効でのChrome/WebKit表示（1440 / 768 / 320px）、文字200％拡大を確認する。公開時はActions成功、英語URL・資産のHTTPS配信、言語切替を確認し、READMEに実施結果を記録する。
+
+### 福祉現場に近い補足作品への差し替え
+
+本人の指定により、Hirundo・KappanをTsumugi・Ayumiに差し替える。日英両版で開発中の状態を明記し、公開READMEの機能説明を導入実績や完成保証へ読み替えない。主要4事例は維持する。
