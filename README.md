@@ -16,12 +16,14 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 
 | ファイル | 役割 |
 | --- | --- |
-| `site/index.html` | 自己紹介、主要4事例、補足3件、関連2件、採用案内。原稿の正本 |
+| `site/index.html` | 日本語版。自己紹介、主要4事例、補足3件、関連2件、採用案内 |
+| `site/en/index.html` | 同じ事例・状態注記を含む英語版 |
 | `site/assets/styles.css` | 配色・レイアウト・レスポンシブ・フォーカス・印刷表示 |
 | `site/assets/favicon.svg` | 2つの経路をつなぐ独自のモノグラム。ヘッダー・フッターでも使用 |
 | `site/assets/paths.svg` | 「理解と技術をつなぐ」ことを表すヒーロー用の図版 |
 | `site/assets/ogp.svg` / `ogp.png` | SNS共有用の原稿と1200×630の配信用画像 |
-| `site/404.html` | 公開トップに戻るリンクを備えた404ページ |
+| `site/assets/ogp-en.svg` / `ogp-en.png` | 英語版SNS共有用の原稿と配信用画像 |
+| `site/404.html` | 日英両方の公開トップに戻れる共通404ページ |
 | `scripts/check_site.py` | 公開ファイル、リンク・アンカー、メタデータ、サイズの静的検査 |
 | `.github/workflows/pages.yml` | 静的検査後に `site/` だけをGitHub Pagesへ公開 |
 | `AGENTS.md` / `SPEC.md` | 作業規約と製品仕様・受け入れ条件 |
@@ -40,7 +42,7 @@ python3 scripts/check_site.py
 
 ## GitHub Pagesへの公開
 
-公開先は [SilentMalachite Portfolio](https://silentmalachite.github.io/Portfolio/) です。公開リポジトリは [SilentMalachite/Portfolio](https://github.com/SilentMalachite/Portfolio)、公開ブランチは `main`、PagesのSourceはGitHub Actionsです。
+公開先は [日本語版](https://silentmalachite.github.io/Portfolio/) と [English](https://silentmalachite.github.io/Portfolio/en/) です。公開リポジトリは [SilentMalachite/Portfolio](https://github.com/SilentMalachite/Portfolio)、公開ブランチは `main`、PagesのSourceはGitHub Actionsです。
 
 公開設定・更新時は次を確認します。
 
@@ -109,3 +111,9 @@ python3 scripts/check_site.py
 - 実際のActions artifactをダウンロード・展開一覧で確認し、公開ファイル7件のみで管理文書が含まれないことを確認。
 - 公開ファイル7件はHTTPSで取得した内容とローカルファイルが完全一致。サイトからの外部リンク14件はいずれもHTTP 200。
 - Safariアプリ本体、VoiceOver、実機スマートフォンでの操作は未検証。
+
+### 英語版の追加（2026-09-10）
+
+英語版は `site/en/index.html` に配置し、日本語版と共通CSS・図版を使います。ヘッダーとフッターの言語リンクで往復でき、ブラウザ言語による自動転送はしません。日英それぞれのcanonical・hreflang・OGPを設定し、英語用OGP画像と日英併記の404を用意しています。日本語原稿の更新時は、英語版の事例・状態注記・リンクも同時に確認してください。
+
+追加時のローカル検証: `python3 scripts/check_site.py` 成功（HTML3ページ、公開ファイル10件、約200KB）。未追加の英語ページ・画像・言語リンクを検査が検出することも先に確認しました。ChromeとWebKitで日英両版の1440 / 768 / 320px、320pxで文字200％拡大、画像読込、通常アンカー、ヘッダー・フッターからの言語切替、キーボードによるスキップリンクを確認。英語版全体・PCとモバイルのトップ・英語OGPを目視確認しました。日英のIDと外部リンク先も一致しています。英語版のVoiceOver・実機スマートフォン・印刷表示は未検証です。公開処理はmainへのpushで実行し、結果はGitHub Actionsの履歴で確認できます。

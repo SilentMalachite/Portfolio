@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fafaf7"/>
+  <rect x="720" width="480" height="630" fill="#e8eee3"/>
+  <rect x="64" y="56" width="45" height="45" rx="12" fill="#173e35"/>
+  <path d="M75 88V74a6 6 0 0 1 12 0v14M87 88V74a6 6 0 0 1 12 0v14M75 81h24" stroke="#e3edc5" stroke-width="3.5" fill="none"/>
+  <text x="122" y="88" font-size="28" font-family="Georgia,serif" fill="#173e35">SilentMalachite</text>
+  <text x="66" y="191" font-size="13" font-family="sans-serif" letter-spacing="3" fill="#315f4c">WELFARE × TECHNOLOGY</text>
+  <g font-family="Georgia,serif" font-size="62" fill="#202e28"><text x="60" y="290">Human needs.</text><text x="60" y="390" fill="#315f4c">Practical technology.</text></g>
+  <text x="64" y="455" font-size="19" font-family="Arial,sans-serif" fill="#58655d">Archaeology, accessibility and software for people.</text>
+  <path d="M780 409V243a66 66 0 0 1 132 0v166M912 461V295a66 66 0 0 1 132 0v166" stroke="#315f4c" stroke-width="28" fill="none"/>
+  <path d="m768 355 292 125" stroke="#c3d7a6" stroke-width="24"/>
+  <circle cx="1101" cy="156" r="10" fill="#8ca27d"/><circle cx="774" cy="489" r="5" fill="#315f4c"/>
+  <path d="M746 535h400" stroke="#becdb7"/>
+  <path d="M64 534h596" stroke="#dce2d9"/>
+  <text x="64" y="575" font-size="13" letter-spacing="2" font-family="sans-serif" fill="#58655d">ACCESSIBILITY · WELFARE · SOFTWARE</text>
+</svg>

@@ -20,6 +20,10 @@ html {
   scroll-padding-top:32px;
 }
 
+html:lang(en) {
+  --serif:Georgia,"Times New Roman",serif;
+}
+
 body {
   margin:0;
   background:var(--paper);
@@ -89,6 +93,7 @@ h1,h2,h3 {
 }
 
 .site-header {
+  flex-wrap:wrap;
   min-height:106px;
   padding:24px 4.4vw;
   display:flex;
@@ -141,7 +146,21 @@ h1,h2,h3 {
   display:inline-flex;
   align-items:center;
   text-decoration:none;
-  white-space:nowrap;
+  white-space:normal;
+}
+
+.language-link {
+  text-decoration:underline;
+  text-underline-offset:5px;
+}
+
+:lang(en) .hero-lead {
+  letter-spacing:0;
+}
+
+:lang(en) h1 {
+  letter-spacing:-.035em;
+  line-height:1.18;
 }
 
 .site-header nav a:hover {
