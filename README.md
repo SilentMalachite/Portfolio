@@ -40,9 +40,9 @@ python3 scripts/check_site.py
 
 ## GitHub Pagesへの公開
 
-想定公開先は `https://silentmalachite.github.io/Portfolio/` です。今回、リポジトリ作成、Git初期化、コミット、push、Pagesの有効化は行っていません。
+公開先は [SilentMalachite Portfolio](https://silentmalachite.github.io/Portfolio/) です。公開リポジトリは [SilentMalachite/Portfolio](https://github.com/SilentMalachite/Portfolio)、公開ブランチは `main`、PagesのSourceはGitHub Actionsです。
 
-公開時に次を確認します。
+公開設定・更新時は次を確認します。
 
 1. 公開リポジトリ名を `SilentMalachite/Portfolio`、公開ブランチを `main` とする。別名にする場合はHTMLのcanonical・OGP、404のリンク、検査スクリプトの `BASE` と仕様を同時に変更する。
 2. GitHubの Settings → Pages → Build and deployment → Source で **GitHub Actions** を選ぶ。
@@ -69,7 +69,7 @@ python3 scripts/check_site.py
 | BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
 | MonoOto | [README](https://github.com/SilentMalachite/MonoOto#readme) |
 
-## 公開前に本人が具体化できる項目
+## 今後本人が具体化できる項目
 
 現状は公開情報で分かる制作物と設計を説明しています。各作品の詳細な担当分担、職務経歴、希望職種、公開してよい連絡先は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
 
@@ -89,12 +89,23 @@ python3 scripts/check_site.py
 - ChromeのA4印刷PDFを確認。本文・主要事例・採用案内を含み、テキスト領域がページ外へはみ出さないことを検査。
 - 独立した静的レビューでコピー、主要導線、公開artifact範囲を再確認。
 
-**未実施**: GitHub Actions本番実行、GitHub Pagesでの実公開・任意パスの404、Safariアプリ本体、VoiceOverによる実際の読み上げ、実機スマートフォンでの操作。WebKitの検証はSafariアプリ本体の検証ではありません。WCAG全体への適合を宣言するものではありません。
+**初版検証時に未実施（公開検証は後述）**: GitHub Actions本番実行、GitHub Pagesでの実公開・任意パスの404、Safariアプリ本体、VoiceOverによる実際の読み上げ、実機スマートフォンでの操作。WebKitの検証はSafariアプリ本体の検証ではありません。WCAG全体への適合を宣言するものではありません。
 
-主要事例の細かな制作分担は本人の確認待ちであり、現状は公開資料から分かる取り組みの紹介です（SPEC C12の担当詳細）。サイト本体の制作は完了していますが、公開と応募用プロフィールの具体化は別段階です。
+主要事例の細かな制作分担は本人の確認待ちであり、現状は公開資料から分かる取り組みの紹介です（SPEC C12の担当詳細）。サイト本体は公開済みです。応募用プロフィールの具体化は今後の更新事項です。
 
 ### AlchemIIIFへの主要事例差し替え（2026-09-10）
 
 本人の指定により、TsumugiをAlchemIIIFへ差し替えました。考古学の専門家として文化財のデジタル化と就労継続支援の仕事づくりをつなぐ試みを明記し、関連アンカー・図版・紹介文・出典を更新しています。上記の全体検証は初版実装時の記録です。
 
 差し替え後は静的検査を再実行し、Chrome・WebKitの1440 / 768 / 320pxと320pxでの文字200％拡大で横方向のはみ出しがないことを確認しました。新しい内部リンク2件の移動、外部リンクの配置、旧リンクの除去を検査し、PC・モバイルの事例カードを目視確認しています。AlchemIIIFの公開リポジトリとローカルプレビューはHTTP 200でした。実公開と支援技術による検証は未実施です。
+
+### GitHub Pages初回公開（2026-09-10）
+
+本人の公開指示によりGitと公開リポジトリを新規作成し、完成版をmainに初回コミット・pushしました。既存ブランチがないためマージ操作は不要でした。
+
+- [初回公開Actions](https://github.com/SilentMalachite/Portfolio/actions/runs/34438611665): build / deploy成功。
+- HTTPSの公開URLをローカルのChrome（headless）で表示し、JavaScript無効・幅1440 / 768 / 320pxで横方向のはみ出しがないこと、画像読込、ページ内アンカー、A11yLabの直リンク2件、AlchemIIIFの掲載を確認。トップ画面を目視確認。
+- 存在しない階層のURLでHTTP 404と独自404ページのトップへのリンクを確認。
+- 実際のActions artifactをダウンロード・展開一覧で確認し、公開ファイル7件のみで管理文書が含まれないことを確認。
+- 公開ファイル7件はHTTPSで取得した内容とローカルファイルが完全一致。サイトからの外部リンク14件はいずれもHTTP 200。
+- Safariアプリ本体、VoiceOver、実機スマートフォンでの操作は未検証。

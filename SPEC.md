@@ -1,6 +1,6 @@
 # SilentMalachite Portfolio 仕様書
 
-作成日: 2026-09-10。状態: 転職・福祉×ITを主軸とする実装仕様。HTML/CSSによるサイト構築と画像・ロゴ制作は本人から依頼済み。公開は別段階とする。
+作成日: 2026-09-10。状態: 転職・福祉×ITを主軸とする実装仕様。HTML/CSSによるサイト構築と画像・ロゴ制作は本人から依頼済み。2026-09-10に本人から公開指示を受け、GitHub Pagesへ初回公開した。
 
 ## 1. 目的と前提
 
@@ -164,7 +164,7 @@ scripts/
   check_site.py           # 依存なしの静的検査
 ```
 
-サイト本体と公開準備ファイルは実装済み。公開操作は未実施。公開内容を JSON と HTML の両方に重複管理しない。動的データ取得、API トークン、アクセス解析、Cookie、外部 Web フォント、CDN 依存、問い合わせバックエンドは不要。
+サイト本体と公開準備ファイルは実装済み。GitHub Pagesへの初回公開は実施済み。公開内容を JSON と HTML の両方に重複管理しない。動的データ取得、API トークン、アクセス解析、Cookie、外部 Web フォント、CDN 依存、問い合わせバックエンドは不要。
 
 `title`、description、canonical、OGP、favicon、viewport を設定する。ページタイトルの初期値は `SilentMalachite | 福祉×IT・アクセシビリティ`。OGP と description に未確認の経歴を含めない。canonical と `og:url` は公開トップ、`og:image` は公開画像の絶対 URL とする。
 
@@ -172,7 +172,7 @@ CSS、画像、favicon は `./assets/...` で参照する。`/assets/...` のよ
 
 ## 7. GitHub Pages 公開仕様
 
-初期の配置先はプロジェクトリポジトリ `SilentMalachite/Portfolio`、想定 URL は `https://silentmalachite.github.io/Portfolio/`。現時点で同リポジトリは取得した公開一覧になく、ローカルも Git 未初期化の空フォルダだった。公開先が既に存在する、Pages が有効である、URL にアクセスできるとは扱わない。
+初期の配置先はプロジェクトリポジトリ `SilentMalachite/Portfolio`、想定 URL は `https://silentmalachite.github.io/Portfolio/`。調査時点では同リポジトリは存在せず、ローカルも Git 未初期化だった。2026-09-10の本人指示により公開リポジトリを新規作成し、mainへのpush、ActionsをSourceとするPages設定、初回デプロイとHTTPS表示を確認した。
 
 ユーザーサイト用リポジトリへの変更や独自ドメイン設定は v1 の対象外。実際のリポジトリ名が変わった場合は、公開前に canonical、OGP、404 の戻り先と本節を同時に更新する。GitHub Pages のユーザーサイトとプロジェクトサイトの URL 規則は [公式説明](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) に従う。
 
@@ -233,4 +233,4 @@ CSS、画像、favicon は `./assets/...` で参照する。`/assets/...` のよ
 
 本人の細かな制作分担は未提供のため、既存公開資料から分かる活動と制作物を説明する。職種・職歴・手書きコードの割合などを補完しない。公開前の原稿確認事項としてREADMEに残す。
 
-実装・ローカル検証は完了。C6のVoiceOver、C7/C11の実公開環境、C12の詳細な本人担当の確認は未完了であり、公開済み・完全適合とは扱わない。
+実装・ローカル検証およびGitHub Pages初回公開は完了。Actions成功、公開URLのChrome表示、資産読込、独自404を確認した（READMEの公開検証記録を参照）。C6のVoiceOver、実機スマートフォン、C12の詳細な本人担当の確認は未完了であり、完全適合とは扱わない。
