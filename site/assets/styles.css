@@ -293,6 +293,7 @@ h1 span {
 .hero-art {
   position:relative;
   background:#e8eee3;
+  padding:48px 0 14px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -316,17 +317,14 @@ h1 span {
   display:block;
   width:100%;
   height:auto;
-  margin-top:-18px;
+  margin-top:0;
 }
 
 .art-caption {
   display:flex;
+  margin:8px 24px 12px;
   align-items:center;
   gap:25px;
-  position:absolute;
-  bottom:34px;
-  left:38px;
-  right:38px;
   color:var(--green);
 }
 
@@ -338,6 +336,8 @@ h1 span {
 }
 
 .art-number {
+  white-space:nowrap;
+  flex-shrink:0;
   align-self:flex-start;
   font-family:Georgia,serif;
   font-size:18px;
@@ -345,12 +345,14 @@ h1 span {
 }
 
 .art-seal {
+  flex-shrink:0;
+  white-space:nowrap;
   margin-left:auto;
   font-family:Georgia,serif;
   font-size:25px;
   font-style:italic;
-  width:60px;
-  height:60px;
+  width:2.4em;
+  height:2.4em;
   display:grid;
   place-items:center;
   border:1px solid #9daf9c;
@@ -1079,10 +1081,6 @@ h2 {
     left:25px;
     right:25px;
   }
-  .art-caption {
-    left:25px;
-    right:25px;
-  }
   .hero-bottom {
     flex-wrap:wrap;
   }
@@ -1170,7 +1168,6 @@ h2 {
   }
   .art-caption {
     gap:15px;
-    bottom:30px;
   }
   .art-caption p {
     font-size:15px;
@@ -1363,16 +1360,10 @@ h2 {
   .hero-bottom a {
     font-size:7px;
   }
-  .hero-art {
-    height:370px;
-  }
   .hero-art>.hero-paths {
-    position:absolute;
     width:390px;
+    align-self:center;
     max-width:100%;
-    left:50%;
-    top:-32px;
-    transform:translateX(-50%);
     margin:0;
   }
   .art-topline {
@@ -1383,11 +1374,6 @@ h2 {
     font-size:7px;
     letter-spacing:1px;
   }
-  .art-caption {
-    bottom:19px;
-    left:24px;
-    right:24px;
-  }
   .art-caption p {
     font-size:13px;
     line-height:1.6;
@@ -1397,8 +1383,8 @@ h2 {
   }
   .art-seal {
     display:grid;
-    width:43px;
-    height:43px;
+    width:2.4em;
+    height:2.4em;
     font-size:18px;
   }
   .section-wrap {
@@ -1596,12 +1582,6 @@ h2 {
     gap:8px;
     letter-spacing:.5px;
   }
-  .hero-art {
-    height:330px;
-  }
-  .hero-art>.hero-paths {
-    top:-28px;
-  }
   .project-body {
     padding-inline:20px;
   }
@@ -1645,25 +1625,25 @@ h2 {
   fill: #537449;
 }
 
-@media screen and (prefers-reduced-motion:no-preference) {
-  .hero-arch {
-    animation: raise-arch 2.4s cubic-bezier(.25,.1,.25,1) both;
+@media screen {
+  .hero-paths.is-playing .hero-arch {
+    animation: raise-arch 2.4s cubic-bezier(.25,.1,.25,1) both!important;
   }
-  .hero-arch-second {
-    animation-delay: .45s;
+  .hero-paths.is-playing .hero-arch-second {
+    animation-delay: .45s!important;
   }
-  .hero-route {
-    animation: trace-route 1.4s ease-in-out 2s both;
+  .hero-paths.is-playing .hero-route {
+    animation: trace-route 1.4s ease-in-out 2s both!important;
   }
-  .hero-route-second {
-    animation-delay: 2.3s;
+  .hero-paths.is-playing .hero-route-second {
+    animation-delay: 2.3s!important;
   }
-  .hero-route-shared {
-    animation-duration: .75s;
-    animation-delay: 3.7s;
+  .hero-paths.is-playing .hero-route-shared {
+    animation-duration: .75s!important;
+    animation-delay: 3.7s!important;
   }
-  .hero-arrival {
-    animation: mark-arrival .35s ease-out 4.45s both;
+  .hero-paths.is-playing .hero-arrival {
+    animation: mark-arrival .35s ease-out 4.45s both!important;
   }
 }
 
@@ -1818,4 +1798,25 @@ h2 {
   h2,h3 {
     break-after:avoid;
   }
+}
+
+.hero-replay:not([hidden]) {
+  display:block;
+  margin:0 auto;
+  max-width:calc(100% - 48px);
+  min-height:44px;
+  padding:8px 16px;
+  border:1px solid var(--green);
+  border-radius:4px;
+  color:var(--green);
+  background:var(--paper);
+  font:inherit;
+  font-size:12px;
+  line-height:1.5;
+  cursor:pointer;
+}
+
+.hero-replay:focus-visible {
+  outline:3px solid var(--green);
+  outline-offset:3px;
 }
