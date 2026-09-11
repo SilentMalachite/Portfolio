@@ -21,7 +21,7 @@
   <meta property="og:image:alt" content="SilentMalachite — Practical technology for human needs. An illustration of connected green pathways.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="stylesheet" href="../assets/styles.css?v=20260911-slow-arches">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -50,7 +50,43 @@
       </div>
       <div class="hero-art">
         <p class="art-topline"><span>DIFFERENT NEEDS.</span><span>SHARED POSSIBILITIES.</span></p>
-        <img src="../assets/paths.svg" width="680" height="640" alt="" fetchpriority="high">
+        <svg class="hero-paths" width="680" height="640" viewBox="0 0 680 640" fill="none" aria-hidden="true" focusable="false">
+          <defs>
+          <linearGradient id="face" x1="120" y1="130" x2="475" y2="520" gradientUnits="userSpaceOnUse"><stop stop-color="#4e7969"/><stop offset="1" stop-color="#173e35"/></linearGradient>
+          <linearGradient id="edge" x1="220" y1="290" x2="520" y2="525" gradientUnits="userSpaceOnUse"><stop stop-color="#214c3f"/><stop offset="1" stop-color="#0e3027"/></linearGradient>
+          <linearGradient id="path" x1="280" y1="380" x2="520" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#e3edc5"/><stop offset="1" stop-color="#c5d6a9"/></linearGradient>
+          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter>
+          </defs>
+          <g id="hero-base">
+          <g stroke="#648576" stroke-opacity=".17"><path d="m18 364 358-207 301 174M-34 445 358 219l345 198M-21 516l394-227 329 190M52 563l360-209 308 178M132 608l317-183 221 127"/><path d="m119 259 492 283M52 298l499 290M179 228l491 285M245 191l460 265M-8 332l500 288"/></g>
+          <ellipse cx="355" cy="474" rx="195" ry="55" fill="#244c3e" opacity=".17" filter="url(#shadow)"/>
+          <path d="m88 429 302-174 213 123-302 175z" fill="#d0dfcf" stroke="#c1d2c1"/>
+          <path d="m88 429 213 123v11L88 441z" fill="#c2d2c0"/><path d="m301 552 302-174v12L301 564z" fill="#b1c6b4"/>
+          <path d="m168 431 73-43 62 36 73-43 44 26-117 68z" fill="url(#path)"/>
+          </g>
+          <g id="hero-arch-left" class="hero-arch">
+          <path d="M188 414V249c0-84 50-139 113-139 63 0 113 55 113 139v165l-38 22V249c0-62-33-100-75-100s-75 38-75 100v143z" fill="url(#face)"/>
+          <path d="m188 414 39 23 38-22-39-23z" fill="#173e35"/>
+          <path d="M414 249v165l39 23V272c0-84-50-139-113-139l-39-23c63 0 113 55 113 139Z" fill="url(#edge)"/>
+          <path d="M226 249v143l39 23V272c0-59 30-97 69-100-10-14-21-23-33-23-42 0-75 38-75 100Z" fill="#809b79"/>
+          </g>
+          <g id="hero-arch-right" class="hero-arch hero-arch-second">
+          <path d="M303 480V315c0-84 50-139 113-139 63 0 113 55 113 139v165l-38 22V315c0-62-33-100-75-100s-75 38-75 100v143z" fill="url(#face)"/>
+          <path d="m303 480 39 23 38-22-39-23z" fill="#173e35"/>
+          <path d="M529 315v165l39 23V338c0-84-50-139-113-139l-39-23c63 0 113 55 113 139Z" fill="url(#edge)"/>
+          <path d="M341 315v143l39 23V338c0-59 30-97 69-100-10-14-21-23-33-23-42 0-75 38-75 100Z" fill="#809b79"/>
+          </g>
+          <g id="hero-foreground">
+          <path d="m222 378 46-27 244 141-46 27z" fill="url(#path)"/><path d="m222 378 244 141v11L222 389z" fill="#abc28e"/><path d="m466 519 46-27v11l-46 27z" fill="#96ae80"/>
+          <circle cx="167" cy="311" r="12" fill="#b1c282"/><circle cx="545" cy="186" r="8" fill="#446b57"/><circle cx="124" cy="442" r="6" fill="#446b57"/>
+          <path d="M550 140v20m-10-10h20M134 212v16m-8-8h16" stroke="#597b64" stroke-width="1.5"/>
+          <path d="M538 329h55v-41M142 363h-35v-56" stroke="#587b65" stroke-opacity=".65"/><circle cx="538" cy="329" r="3" fill="#587b65"/><circle cx="142" cy="363" r="3" fill="#587b65"/>
+          </g>
+          <path class="hero-route" pathLength="1" d="M240 375 355 442 366 435"/>
+          <path class="hero-route hero-route-second" pathLength="1" d="M263 363 378 429 366 435"/>
+          <path class="hero-route hero-route-shared" pathLength="1" d="m366 435 120 69"/>
+          <circle class="hero-arrival" cx="486" cy="504" r="4"/>
+        </svg>
         <div class="art-caption"><span class="art-number">01 —</span><p>Understand people.<br>Open up possibilities.</p><span class="art-seal" aria-hidden="true">SM</span></div>
       </div>
     </section>

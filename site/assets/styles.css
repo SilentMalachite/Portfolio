@@ -312,8 +312,10 @@ h1 span {
   letter-spacing:1.7px;
 }
 
-.hero-art>img {
+.hero-art>.hero-paths {
+  display:block;
   width:100%;
+  height:auto;
   margin-top:-18px;
 }
 
@@ -1044,7 +1046,7 @@ h2 {
   .hero {
     min-height:800px;
   }
-  .hero-art>img {
+  .hero-art>.hero-paths {
     max-height:740px;
     object-fit:contain;
   }
@@ -1364,7 +1366,7 @@ h2 {
   .hero-art {
     height:370px;
   }
-  .hero-art>img {
+  .hero-art>.hero-paths {
     position:absolute;
     width:390px;
     max-width:100%;
@@ -1597,7 +1599,7 @@ h2 {
   .hero-art {
     height:330px;
   }
-  .hero-art>img {
+  .hero-art>.hero-paths {
     top:-28px;
   }
   .project-body {
@@ -1628,6 +1630,56 @@ h2 {
   .hero-description,.section-description,.strength-grid p,.project-body>p:not(.project-name),.engineering-list p,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
     font-size:16px;
   }
+}
+
+/* Keep the complete routes visible unless motion is explicitly permitted. */
+.hero-route {
+  stroke: #537449;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+}
+
+.hero-arrival {
+  fill: #537449;
+}
+
+@media screen and (prefers-reduced-motion:no-preference) {
+  .hero-arch {
+    animation: raise-arch 2.4s cubic-bezier(.25,.1,.25,1) both;
+  }
+  .hero-arch-second {
+    animation-delay: .45s;
+  }
+  .hero-route {
+    animation: trace-route 1.4s ease-in-out 2s both;
+  }
+  .hero-route-second {
+    animation-delay: 2.3s;
+  }
+  .hero-route-shared {
+    animation-duration: .75s;
+    animation-delay: 3.7s;
+  }
+  .hero-arrival {
+    animation: mark-arrival .35s ease-out 4.45s both;
+  }
+}
+
+@keyframes raise-arch {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes trace-route {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes mark-arrival {
+  from { fill: #c5d6a9; }
+  to { fill: #537449; }
 }
 
 @media(prefers-reduced-motion:reduce) {
