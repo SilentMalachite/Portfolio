@@ -65,7 +65,7 @@ python3 scripts/check_site.py
 | SummaryTalk | [README](https://github.com/SilentMalachite/SummaryTalk#readme) |
 | AlchemIIIF | [README](https://github.com/SilentMalachite/AlchemIIIF#readme)。考古学の専門性と福祉をつなぐ掲載意図は本人の指定 |
 | OmniArchive | [README](https://github.com/SilentMalachite/OmniArchive#readme) |
-| agent-review-ts | [README](https://github.com/SilentMalachite/agent-review-ts#readme) |
+| Soujo（層序） | [日本語README](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/Soujo#readme)、[仕様書](https://github.com/SilentMalachite/Soujo/blob/main/SPEC.ja.md)。2026-09-14確認 |
 | Tsumugi | [README](https://github.com/SilentMalachite/Tsumugi#readme)。記録・工賃計算と請求機能の未完成範囲を確認 |
 | Ayumi | [README](https://github.com/SilentMalachite/Ayumi#readme)。個別支援計画・支援記録、PC1台とLANの構成、請求機能は対象外と確認 |
 | BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
@@ -143,3 +143,11 @@ MacのSafari実機では修正後の完成図を確認しました。このMac�
 - 日英の採用欄に、本人指定の略歴と産業カウンセラー資格を追加。
 - ローカルHTTP配信をCodex内蔵ブラウザで確認。幅1440px・320pxで略歴と資格の折り返し・表示を目視確認し、横方向のはみ出しなし。
 - `python3 scripts/check_site.py` と `git diff --check` が成功。今回の確認ではSafari・実機スマートフォン・VoiceOverは未実施。
+
+### Soujoへの差し替え（2026-09-14）
+
+本人の指定により、日英のagent-review-ts紹介をSoujo（層序）へ差し替え、開発姿勢の説明も「特性を設計に変える」に更新。公開README・仕様書で確認した、小さな作業単位と記録による中断・再開の設計を紹介しています。
+
+検証: `python3 scripts/check_site.py` と `git diff --check` が成功。ローカルHTTPの `/Portfolio/` 配下をCodex内蔵ブラウザで確認し、日英両版の1440／768／320px幅で横方向のはみ出しなし。PC・モバイルの紹介文を目視確認し、開発姿勢欄からSoujo紹介への内部リンクの移動も確認しました。旧作品の名称・URLが公開HTMLに残っていないことと、日英のID・外部リンクの一致を確認しました。
+
+上記は公開前のローカル検証記録です。Safari・実機スマートフォン・VoiceOver・文字200％拡大・JavaScript無効時の表示は今回未検証です。Soujo自体の動作や効果をこのサイト作業で検証した記録ではありません。

@@ -37,7 +37,7 @@
 | 課題の理解をソフトウェアに結びつけられる | 要約筆記の記事と SummaryTalk | 問題提起と実装を相互リンクし、発信から制作へのつながりを示す |
 | 考古学の専門性を福祉につなげる | 本人の公開紹介への指定と AlchemIIIF の公開 README | 発掘調査報告書のデジタル化を、就労継続支援での意味のある仕事につなぐ課題設定と工程を説明する |
 | 支援とデジタル作業の接点を考えている | OmniArchive の公開 README | 資料整理、メタデータ、承認・公開の工程を非技術者にも分かる言葉で示す |
-| 実装結果を確認しながら改善できる | agent-review-ts と過去の作業メモリ | AIの指摘をそのまま採用せず、仕様と検証で判断する姿勢を示す |
+| 自身の特性を具体的な設計につなげられる | 本人の公開紹介への指定と Soujo の公開 README・仕様書 | 記憶に頼らず、小さな作業単位と記録で中断・再開を支える設計を示す |
 
 メモリ由来の特徴は過去の対話からの要約であり、心理的特性の断定ではない。福祉への理解は公開活動で示し、未確認の支援経験年数・資格・所属・導入実績に置き換えない。コードの存在と実際の運用成果を区別する。
 
@@ -81,7 +81,7 @@ AIとの協働は実際の制作方法に沿って記載する。A11yLab は公�
 
 以下は主要事例の後に各100〜180字程度で紹介する。福祉との関係を無理に付け足さず、開発・検証の幅を示す。
 
-- [agent-review-ts](https://github.com/SilentMalachite/agent-review-ts#readme): 別の AI にレビューを依頼し、指摘を主担当が検証する TypeScript CLI。[AgentReview](https://github.com/SilentMalachite/AgentReview) の移植版と明記する。
+- [Soujo（層序）](https://github.com/SilentMalachite/Soujo#readme): 記憶に頼らず中断・再開できるよう設計したAI開発支援ツール。TypeScript CLIと共通スキルで、Claude CodeとCodexが仕様・計画・記録・次の一手を共有する。ソース公開とし、動作や効果を本サイトで検証済みとは書かない。
 - [Tsumugi](https://github.com/SilentMalachite/Tsumugi#readme): 開発中。就労継続支援B型の記録・工賃計算を扱うオフラインアプリ。C# / Avalonia / SQLite。端末内での情報管理と訂正履歴を説明し、請求計算・帳票・CSV生成は未完成と明記する。
 - [Ayumi](https://github.com/SilentMalachite/Ayumi#readme): 開発中。就労継続支援B型の個別支援計画・支援記録・出欠・期限管理を扱う業務支援アプリ。Elixir / Phoenix / SQLite。PC1台とLANを前提とする構成と履歴を残す設計を説明する。請求機能は対象外。
 
@@ -250,3 +250,7 @@ CSS、画像、favicon は `./assets/...` で参照する。`/assets/...` のよ
 ### 福祉現場に近い補足作品への差し替え
 
 本人の指定により、Hirundo・KappanをTsumugi・Ayumiに差し替える。日英両版で開発中の状態を明記し、公開READMEの機能説明を導入実績や完成保証へ読み替えない。主要4事例は維持する。
+
+### Soujoへの補足作品差し替え（2026-09-14）
+
+本人の指定により、agent-review-tsをSoujoに差し替える。具体的な診断名や症状、医療的効果は追加しない。機能・設計は公開READMEと仕様書で確認し、日英の作品紹介と開発姿勢の説明を同期する。出典と確認日はREADMEに記録する。
