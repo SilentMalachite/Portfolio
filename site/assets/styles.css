@@ -1037,6 +1037,93 @@ h2 {
   font-size:16px;
 }
 
+/* V2: reuse the existing panels and grids for services, cases, and background. */
+.hero-content h1 {
+  font-size:clamp(32px,3.3vw,54px);
+  line-height:1.5;
+  letter-spacing:-.045em;
+}
+:lang(en) .hero-content h1 {
+  font-size:clamp(36px,4vw,64px);
+  line-height:1.2;
+}
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px 24px;
+  margin-top:24px;
+}
+.hero-actions .button {
+  margin-top:0;
+}
+.hero-actions .text-link {
+  font-size:14px;
+  gap:12px;
+}
+.services {
+  border-top:1px solid var(--line);
+}
+.service-contact {
+  margin-top:28px;
+  font-size:16px;
+}
+.case-details {
+  margin:0 0 28px;
+  font-size:16px;
+  color:#4e5b52;
+}
+.case-details>div+div {
+  margin-top:18px;
+}
+.case-details dt {
+  color:var(--accent);
+  font-size:13px;
+  font-weight:650;
+  margin-bottom:4px;
+}
+.case-details dd {
+  margin:0;
+}
+.case-context {
+  margin-top:32px;
+  max-width:72ch;
+  font-size:16px;
+  color:var(--muted);
+}
+.about {
+  padding-block:88px;
+}
+.about-story {
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+  gap:48px;
+  color:var(--muted);
+}
+.about-story p+p {
+  margin-top:22px;
+}
+.about-background {
+  border-left:1px solid var(--line);
+  padding-left:32px;
+}
+.about-background strong {
+  color:var(--ink);
+}
+.about-collaboration {
+  margin-top:30px;
+}
+.contact-examples {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px 40px;
+  padding-left:1.3em;
+  margin-block:24px;
+}
+.legacy-anchor {
+  display:block;
+}
+
 @media(min-width:1600px) {
   .section-wrap {
     padding-left:max(calc((100vw - 1400px)/2),6vw);
@@ -1115,6 +1202,9 @@ h2 {
 }
 
 @media(max-width:800px) {
+  .about-story { grid-template-columns:1fr; gap:28px; }
+  .about-background { border-left:0; border-top:1px solid var(--line); padding:24px 0 0; }
+  .contact-examples { grid-template-columns:1fr; }
   .site-header {
     flex-wrap:wrap;
     justify-content:center;
@@ -1299,6 +1389,9 @@ h2 {
 }
 
 @media(max-width:600px) {
+  .about { padding-block:58px; }
+  .hero-content h1 { font-size:clamp(29px,6.4vw,38px); }
+  :lang(en) .hero-content h1 { font-size:clamp(32px,7.5vw,42px); }
   .site-header {
     justify-content:flex-start;
     padding:20px 22px 12px;
@@ -1671,6 +1764,11 @@ h2 {
 }
 
 @media print {
+  .about-story,.contact-examples { display:block; }
+  .about-background { border:0; padding:18px 0 0; }
+  .case-details { font-size:10pt; }
+  .case-details>div,.strength-grid article,.approach-list article { break-inside:avoid; }
+  .contact-examples { color:#111; }
   @page {
     margin:16mm;
   }

@@ -15,6 +15,9 @@ class Page(HTMLParser):
     def __init__(self, text):
         super().__init__()
         self.ids, self.refs, self.metadata, self.links = [], [], {}, []
+        self.sections, self.case_ids = [], []
+        self.section = None
+        self.counts = {"services": 0, "approach": 0, "contact": 0}
         self.h1 = 0
         self.lang = None
         self.alternates = {}
@@ -22,6 +25,16 @@ class Page(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == "section":
+            self.section = a.get("id")
+            if self.section:
+                self.sections.append(self.section)
+        if tag == "article" and "project-card" in a.get("class", "").split():
+            self.case_ids.append(a.get("id"))
+        if tag == "article" and self.section in {"services", "approach"}:
+            self.counts[self.section] += 1
+        if tag == "li" and self.section == "contact":
+            self.counts["contact"] += 1
         if "id" in a:
             self.ids.append(a["id"])
         if tag == "h1":
@@ -47,6 +60,10 @@ class Page(HTMLParser):
         for key in ("href", "src"):
             if key in a:
                 self.refs.append(("metadata" if tag == "link" and a.get("rel") in {"canonical", "alternate"} else tag, a[key]))
+
+    def handle_endtag(self, tag):
+        if tag == "section":
+            self.section = None
 
 
 for relative in REQUIRED:
@@ -96,9 +113,17 @@ for relative, locale, image_name, switch in (("index.html", "ja_JP", "ogp.png", 
         errors.append(f"{relative}: requires header and footer language links")
     if home.links.count("https://silentmalachite.github.io/A11yLab/") < 2:
         errors.append("A11yLab requires direct project and footer links")
-    for anchor in ("top", "strengths", "projects", "engineering", "approach", "recruiting"):
+    for anchor in ("top", "strengths", "services", "projects", "engineering", "approach", "about", "contact", "recruiting"):
         if anchor not in home.ids:
             errors.append(f"Missing section: {anchor}")
+
+
+    if home.sections != ["strengths", "services", "projects", "engineering", "approach", "about", "contact"]:
+        errors.append(f"{relative}: incorrect V2 section order")
+    if home.case_ids != ["project-soujo", "project-alchemiiif", "project-utsushi", "project-katachi"]:
+        errors.append(f"{relative}: incorrect case-study priority")
+    if home.counts != {"services": 3, "approach": 4, "contact": 6}:
+        errors.append(f"{relative}: requires 3 services, 4 approach items, and 6 contact examples")
 
 not_found = pages.get(ROOT / "404.html")
 if not_found and ("noindex" not in not_found.metadata.get("robots", "") or not {BASE, BASE + "en/"}.issubset(not_found.links)):
@@ -124,4 +149,4 @@ for p in files:
 if errors:
     print("\n".join(f"FAIL: {error}" for error in errors))
     sys.exit(1)
-print(f"PASS: {len(pages)} pages, local links/anchors, metadata, A11yLab links; public files {size:,} bytes")
+print(f"PASS: {len(pages)} pages, local links/anchors, metadata, V2 structure, A11yLab links; public files {size:,} bytes")

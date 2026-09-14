@@ -1,6 +1,6 @@
 # SilentMalachite Portfolio
 
-福祉×IT・アクセシビリティを軸にした、転職向けポートフォリオです。HTML/CSSによる静的サイトとして実装しています。
+業務整理・AI活用・小規模なソフトウェアの試作を相談できる、個人の事業サイト兼ポートフォリオです。HTML/CSSによる静的サイトとして実装しています。
 
 ## ローカル表示
 
@@ -16,7 +16,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 
 | ファイル | 役割 |
 | --- | --- |
-| `site/index.html` | 日本語版。自己紹介、主要4事例、補足3件、関連2件、採用案内 |
+| `site/index.html` | 日本語版。Hero、仕事の整理、3サービス、主要4事例と補足作品、Approach、About、Contact |
 | `site/en/index.html` | 同じ事例・状態注記を含む英語版 |
 | `site/assets/styles.css` | 配色・レイアウト・レスポンシブ・フォーカス・印刷表示 |
 | `site/assets/favicon.svg` | 2つの経路をつなぐ独自のモノグラム。ヘッダー・フッターでも使用 |
@@ -28,9 +28,9 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 | `.github/workflows/pages.yml` | 静的検査後に `site/` だけをGitHub Pagesへ公開 |
 | `AGENTS.md` / `SPEC.md` | 作業規約と製品仕様・受け入れ条件 |
 
-クライアントJavaScript、フレームワーク、Webフォント、トラッカー、外部画像、ビルド用の依存インストールは不要です。作品の色付き図版はこのポートフォリオ用の装飾で、実際のアプリ画面や各作品の既存公式ロゴではありません。
+閲覧のためのJavaScript、フレームワーク、Webフォント、トラッカー、外部画像、ビルド用の依存インストールは不要です。作品の色付き図版はこのポートフォリオ用の装飾で、実際のアプリ画面や各作品の既存公式ロゴではありません。
 
-OGPのPNGはSVGから生成済みです。変更時は、SVGの日本語フォントが正しく表示される環境で1200×630のPNGへ書き出し、文字欠けを目視確認してください。今回の生成にはローカルのSharpを使用しましたが、閲覧・公開時の依存には含まれません。
+OGPのPNGはSVGから生成済みです。変更時は、SVGの日本語フォントが正しく表示される環境で1200×630のPNGへ書き出し、文字欠けを目視確認してください。V2の生成にはローカルのChromeによるSVG表示とPNG書き出しを使用しましたが、閲覧・公開時の依存には含まれません。
 
 ## 確認コマンド
 
@@ -38,7 +38,7 @@ OGPのPNGはSVGから生成済みです。変更時は、SVGの日本語フォ�
 python3 scripts/check_site.py
 ```
 
-標準ライブラリのみを使用します。ページ内リンク・画像参照、A11yLabの直リンク2箇所、OGP、404の戻り先、公開ファイルの合計1MB以内などを検査します。外部リンク先の可用性、見た目、読み上げの品質を保証するものではありません。
+標準ライブラリのみを使用します。ページ内リンク・画像参照、A11yLabの直リンク2箇所、V2のセクション順・主要事例順・3サービス・4つの設計方針・6つの相談例、OGP、404の戻り先、公開ファイルの合計1MB以内などを検査します。外部リンク先の可用性、見た目、読み上げの品質を保証するものではありません。
 
 ## GitHub Pagesへの公開
 
@@ -57,27 +57,68 @@ python3 scripts/check_site.py
 
 ## 原稿の出典
 
-確認日: **2026-09-10**。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
+確認日: **2026-09-14**（主要4事例・Tsumugi・SummaryTalk・Ayumi・MonoOto）。A11yLab・OmniArchive・BudgetTrackerの説明は2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
 
 | 対象 | 確認した公開資料 |
 | --- | --- |
 | A11yLab | [サイト](https://silentmalachite.github.io/A11yLab/)、[要約筆記と制作背景](https://silentmalachite.github.io/A11yLab/hearing/2026-01-03-summaryapp/)、[キーボード操作](https://silentmalachite.github.io/A11yLab/physical/2026-01-02-keyboard-nav/)、[字幕](https://silentmalachite.github.io/A11yLab/hearing/2026-01-01-captions/)、[コントラスト](https://silentmalachite.github.io/A11yLab/visual/2026-01-01-color-contrast/) |
-| SummaryTalk | [README](https://github.com/SilentMalachite/SummaryTalk#readme) |
+| SummaryTalk | [README](https://github.com/SilentMalachite/SummaryTalk#readme)。開発中Beta、一部IPtalkプロトコルは検証待ち |
 | AlchemIIIF | [README](https://github.com/SilentMalachite/AlchemIIIF#readme)。考古学の専門性と福祉をつなぐ掲載意図は本人の指定 |
 | OmniArchive | [README](https://github.com/SilentMalachite/OmniArchive#readme) |
 | Soujo（層序） | [日本語README](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/Soujo#readme)、[仕様書](https://github.com/SilentMalachite/Soujo/blob/main/SPEC.ja.md)。2026-09-14確認 |
+| Utsushi.Win | [README](https://github.com/SilentMalachite/Utsushi.Win#readme)、[v0.2.0](https://github.com/SilentMalachite/Utsushi.Win/releases/tag/v0.2.0)。2026-09-14に非プレリリースと `Utsushi-0.2.0-win-x64.zip` の添付を確認。GUI/CLIの変換工程と制限を照合 |
+| Katachi.Win | [README](https://github.com/SilentMalachite/Katachi.Win#readme)、[v1.0](https://github.com/SilentMalachite/Katachi.Win/releases/tag/v1.0)、[受け入れ確認記録](https://github.com/SilentMalachite/Katachi.Win/blob/v1.0/docs/acceptance.md)。2026-09-14に非プレリリースと `Katachi-1.0-win-x64.zip` の添付を確認。実機手動確認の未了、形式の制約、Qt版からの独立実装を反映 |
 | Tsumugi | [README](https://github.com/SilentMalachite/Tsumugi#readme)。記録・工賃計算と請求機能の未完成範囲を確認 |
 | Ayumi | [README](https://github.com/SilentMalachite/Ayumi#readme)。個別支援計画・支援記録、PC1台とLANの構成、請求機能は対象外と確認 |
 | BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
-| MonoOto | [README](https://github.com/SilentMalachite/MonoOto#readme) |
+| MonoOto | [README](https://github.com/SilentMalachite/MonoOto#readme)。ファイル再生対応の試作。実機継続再生・聴取評価の未検証を反映 |
 
 ## 今後本人が具体化できる項目
 
-現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英の採用欄に略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
+現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英のAboutに略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
 
-採用案内には、本人が公開用として指定したX・Facebookのリンクと、「@」を「[at]」に置き換えたメールアドレスを掲載しています。
+Contactには、本人が公開用として指定したX・Facebookのリンクと、「@」を「[at]」に置き換えたメールアドレスを掲載しています。
 
-## 検証記録
+## 主要事例への変換ツール採用（2026-09-14）
+
+本人の追加指示を受け、主要事例の3・4番目をUtsushi.WinとKatachi.Winへ変更しました。「仕事をほどき、扱いやすい形にする」という考えを、変換条件・命名・例外処理・結果確認までまとめた小さな配布アプリで具体化できるためです。PDFのページ画像化と画像形式の一括変換という用途の違いを示し、日英とも配布ページとソースへの導線を置いています。
+
+Soujo・AlchemIIIFは維持し、Tsumugi・SummaryTalkを開発中の補足事例へ移しました。既存9作品を残し、掲載は主要4件・補足5件・関連2件の計11作品です。What I Doから変換事例への内部リンクも追加しました。
+
+公開リリースとZIPの存在を確認し、状態は「配布版あり」としました。Katachi.Winの実機手動確認は公開記録上未了です。Windowsアプリ自体の実行・品質保証や、導入・効率改善の実績をこのサイト作業で確認したとは書いていません。
+
+差し替え後のローカル検証（`/Portfolio/` 配下をHTTP配信）:
+
+- `python3 scripts/check_site.py` と `git diff --check`: 成功。日英の主要事例順・リンク・旧アンカー・メタデータの整合を確認。公開ファイルは222,207 bytes。
+- Chrome: 日英の1440 / 768 / 320pxと、320pxで計算済み文字サイズを200%にした状態で横方向のはみ出しなし。新カード・配布リンク・移動した補足事例を目視確認。画像は遅延読込後にすべて正常。
+- 新しい配布・ソースリンク各4件を日英でキーボード巡回し、フォーカス表示を確認。配布リンク2件はEnterで各リリースページへ到達し、ソースリンク2件はHTTP 200。What I Doからの内部リンクと旧作品アンカーも到達を確認。
+- JavaScript無効でも日英の主要4事例と新しい4リンクを利用でき、320pxで横方向のはみ出しなし。
+- 公開README・リリース・制限と日英コピーを照合し、独立レビューでも不整合なし。今回の変更は日英HTML・仕様書・作業規約・本記録・既存静的検査の期待順に限定。
+
+今回の差し替えでは、Windowsアプリの実行、Safari・実機スマートフォン・VoiceOver・印刷表示・公開環境の再検証は未実施です。コミット・push・公開は実施していません。以下のV2改修記録は差し替え前の検証です。
+
+## V2改修（2026-09-14）
+
+既存の配色・書体・カード・図版・ヒーロー再生機能・公開基盤を継承し、事業相談を主目的に構成と文章を更新しました。日英で3サービス、Soujoを先頭にした主要4事例、4つの設計方針、経歴の背景を示すAbout、6つの相談例を含むContactを揃えています。9作品、既存の略歴・資格・連絡先、旧アンカーを保持しています。日英OGPも新しい中心メッセージに同期しています。
+
+機能説明は公開資料に基づくもので、受託・導入実績や効果測定を示すものではありません。旧紹介との照合で、MonoOtoのファイル再生が未完成という古い説明を更新しました。
+
+今回のローカル検証（`/Portfolio/` 配下をHTTP配信）:
+
+- `python3 scripts/check_site.py` と `git diff --check`: 成功。HTML3ページの相対リンク・旧アンカー・メタデータ・V2構成・主要作品順・日英のID/外部リンク一致を確認。公開ファイルは約217KB。
+- Chrome: 日英の1440 / 768 / 320pxで画像読込と横方向のはみ出しなし。320pxで計算済み文字サイズを200%にしても横方向のはみ出しなし。主要セクションと日英OGPを目視確認。
+- 日英それぞれ37個のリンク・ボタンをTabで巡回し、全要素のフォーカス表示を確認。スキップリンク、内部リンクの到達、ヘッダー・フッターの言語切替が成功。JavaScript無効でも本文・主要CTAを使用でき、再生ボタンは非表示。
+- 日英の再生・停止をEnter / Spaceで確認。自動終了とフォーカス維持、再生中の動きを減らす設定変更による停止を確認。設定変更の検査は非同期の描画反映を待って判定した。
+- 装飾・SVGを除いた表示文字の計算済み色と背景を確認し、日英とも各192箇所で最低コントラスト比は約5.02:1。新設部分を含め、通常文字4.5:1の目標を下回る組み合わせなし。
+- Safariアプリ本体: 現在のデスクトップウインドウで日英Hero、制作事例への移動、日本語Contact、英語への言語切替を確認。Playwright WebKitは対応する実行ファイルがなく起動不可だったため、この限定範囲をSafari本体で確認。
+- 日英のA4印刷PDFを生成。各10ページの文字領域がページ内に収まることを検査し、Hero・事例・About・Contactの内容と印刷表示を確認。項目番号と本文が別ページになる箇所は、記事単位の改ページ制御を追加して再確認。
+- 原稿の独立レビューで残っていた仕様書の旧「採用案内」表現を修正。本人指定の略歴・資格とヒーローSVGは旧版と完全一致。メールの表記・SNSリンク・9作品を保持し、公開HTMLから採用特化文言を除去。
+
+**今回未検証**: 実機スマートフォン、VoiceOver、Safariでの全画面幅・文字拡大・印刷・再生操作、ブラウザUIのズーム操作、外部リンク全件の到達性。各作品の実動作や効果測定、WCAG全項目への適合はこのサイト作業の検証対象ではありません。
+
+V2はローカル改修であり、コミット・push・公開は実施していません。以下は過去の各更新時点の記録です。
+
+## 過去の検証記録
 
 確認日: 2026-09-10。
 
