@@ -1,6 +1,6 @@
 # SilentMalachite Portfolio V2 仕様書
 
-更新日: 2026-09-14。本人の「Portfolio V2 改修指示書」に基づく、個人の事業サイト兼ポートフォリオの実装仕様。初版の公開履歴はREADMEに残し、本書はV2の現行要件を示す。添付指示書は第17節の「1.」で終わっているため、第0〜16節を要件として実装する。
+更新日: 2026-09-29。本人の「Portfolio V2 改修指示書」と、その後の事例差し替え指示に基づく、個人の事業サイト兼ポートフォリオの実装仕様。初版の公開履歴はREADMEに残し、本書はV2の現行要件を示す。添付指示書は第17節の「1.」で終わっているため、第0〜16節を要件として実装する。
 
 ## 1. 目的と想定読者
 
@@ -39,11 +39,11 @@
 | 1 | [Soujo](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md) | Interruptible / Resumable AI Development。仕様・計画・記録・次の一手を外部化し、小さな層で進め、Claude CodeとCodexでも引き継ぐ | TypeScript CLIと共通スキル。ソース公開。認知負荷・効率の効果は未測定 |
 | 2 | [AlchemIIIF](https://github.com/SilentMalachite/AlchemIIIF#readme) | 考古学・文化財の知識を、PDF画像化→図版切り出し→資料情報入力→確認・承認→IIIF公開の工程設計につなぐ | Elixir / Phoenix / PostgreSQLによるWebアプリ。ソース公開。実務導入・利用者評価は本サイトで未確認 |
 | 3 | [Utsushi.Win](https://github.com/SilentMalachite/Utsushi.Win#readme) | PDFのページ画像化を、範囲・解像度・命名の指定から事前表示・失敗確認まで一つの手順にまとめる。GUIとCLI | C++ / WinUI 3 / Windows.Data.Pdf。Windows x64向けZIPの配布版あり。パスワード付きPDFはCLIのみ対応 |
-| 4 | [Katachi.Win](https://github.com/SilentMalachite/Katachi.Win#readme) | 形式・画質・リサイズ・命名・同名時の方針をまとめ、向きと透過の扱いも含めた画像の一括変換 | C++ / WinUI 3 / Windows.Graphics.Imaging。配布版あり。形式は実行環境に依存。WebP・AVIF出力は非対応。実機手動確認は公開記録上未了 |
+| 4 | [Hitoiki（一息）](https://github.com/SilentMalachite/hitoiki#readme) | 作業への没頭で休憩を逃す場面に、間隔・時刻で全モニターへ休憩画面を出す。点滅後の暗い表示と残り時間、予定の重複統合、Esc長押し解除 | TypeScript / Electron。macOS（Apple silicon）・Windows向け配布版あり。初回起動にOSの確認が必要。完全な入力ロックではなく、細かな設定はJSONを編集 |
 
 各カードは **課題 / Problem → 考え方 / Approach → 設計 / Design → 成果物・現状 / Result → 利用技術 / Tech** の順にする。用途・課題の見出しを作品名より先に置き、ソースへの説明的なリンクを用意する。本人の細かな担当を断定せず、実測していない効率改善を成果にしない。
 
-配布まで完結した小さな業務ツールが、事業相談の読者に作業整理の具体像を示すと判断し、本人の追加指示に基づいて主要事例を差し替えた。Utsushi.Win v0.2.0、Katachi.Win v1.0の非プレリリースとZIP添付を2026-09-14に確認。公開リリースとWindowsでの実動作確認を区別し、サイトの状態表示は「配布版あり」とする。Katachi.WinはQt版の移植ではなく、同一作者による独立実装として扱う。主要導線は配布ページ、補助導線はWindows版リポジトリとする。
+本人の指示に基づき、4番目の事例を2026-09-29にKatachi.WinからHitoikiへ変更した。Hitoikiは、人の特性を踏まえて休憩のきっかけを画面につくる設計として紹介する。作者本人の診断や、健康・認知負荷への効果は推測しない。v0.2.0の非プレリリースとmacOS（Apple silicon）・Windows向け配布物を2026-09-29に確認。Utsushi.Win v0.2.0のZIP確認日は2026-09-14。公開リリースとアプリの実動作確認を区別し、両カードの状態は「配布版あり」、主要導線は配布ページ、補助導線は各リポジトリとする。
 
 ### 3.3 保持する補足作品
 
@@ -65,14 +65,14 @@ A11yLabの公開トップ `https://silentmalachite.github.io/A11yLab/` への直
 | 2 | Hero | 中心メッセージ、「制作事例を見る」→`projects`、「相談できることを見る」→`services` |
 | 3 | What I Do / `strengths` | 現場の観察、課題の分解、必要な技術の選択 |
 | 4 | Services / `services` | 依頼できる3項目、相談例・連絡先への導線 |
-| 5 | Case Studies / `projects` | Soujo → AlchemIIIF → Utsushi.Win → Katachi.Win |
+| 5 | Case Studies / `projects` | Soujo → AlchemIIIF → Utsushi.Win → Hitoiki |
 | 5補足 | More Work & Writing / `engineering` | A11yLab・OmniArchive・Ayumi・Tsumugi・SummaryTalk、関連2件、全リポジトリ |
 | 6 | My Approach / `approach` | 人から考える、複雑さを分解する、特性を設計に変える、小さく作って検証する |
 | 7 | About / `about` | 異なる現場から現在の設計思想への接続、既存の略歴・資格、協業案内 |
 | 8 | Contact / `contact` | 6つの相談例と本人指定のSNS・メール。旧`recruiting`アンカーも維持 |
 | 9 | フッター | GitHub・A11yLab・言語切替・先頭へ、サイト更新日 |
 
-旧アンカー `strengths`・`engineering`・`recruiting` と既存作品のIDを維持する。新しいナビゲーションでは採用用表現を使わない。
+旧アンカー `strengths`・`engineering`・`recruiting` と既存作品のIDを維持する。差し替えた `project-katachi` は、同じ4番目のカード位置へ案内する互換アンカーとして残し、Hitoikiの正規IDは `project-hitoiki` とする。新しいナビゲーションでは採用用表現を使わない。
 
 Aboutでは「異なる現場を経験したからこそ、技術だけでは解決しない問題を知っている」ことを、必要な部分だけ技術へ置き換える現在の仕事につなげる。既存の略歴は「考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員」、保有資格は「産業カウンセラー」を保持する。勤務先・在職期間・学位・追加資格・検査業務の詳細を推測しない。
 
@@ -171,7 +171,7 @@ CSS、画像、favicon は `./assets/...` で参照する。`/assets/...` のよ
 
 ## 9. V2の検証と更新運用
 
-1. **原稿・構造**: 日英のHero・3サービス・指定順の4事例・4つのApproach・About・Contactを確認する。既存9作品に新規2作品を加え、プロフィール・連絡先を維持する。
+1. **原稿・構造**: 日英のHero・3サービス・指定順の4事例・4つのApproach・About・Contactを確認する。本書に示す計11作品、プロフィール・連絡先を維持する。
 2. **表示と操作**: 日英の1440 / 768 / 320px、320pxで文字200%拡大、JavaScript無効、キーボード、言語切替、内部リンク、旧アンカー、アニメーションの再生・停止、印刷、OGPをローカルHTTPの `/Portfolio/` 配下で確認する。幅の数値と目視の両方で検証する。
 3. **整合性**: 静的検査、差分、公開資料との照合、採用特化表現・未確認の実績の混入を自己監査する。実施結果と未検証項目をREADMEに記録する。
 4. **公開**: 公開の依頼・権限がある状態でpushし、Actions成功と公開URLの表示・ローカルファイルとの一致を確認する。V2の初回実装はローカル検証までとし、2026-09-14の追加指示でコミット・push・公開を実施した。公開検証の結果はREADMEに記録する。

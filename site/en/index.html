@@ -198,25 +198,25 @@
           </div>
         </article>
 
-        <article class="project-card" id="project-katachi">
-          <div class="project-art art-summary" aria-hidden="true">
-            <span class="project-kicker">BATCH IMAGE CONVERSION</span>
-            <svg width="112" height="74" viewBox="0 0 112 74" fill="none"><rect x="7" y="17" width="35" height="42" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 11h35v42M8 48l10-13 7 9 6-6 10 10" stroke="currentColor" stroke-width="1.5"/><circle cx="31" cy="28" r="3" fill="currentColor"/><path d="M53 36h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2"/><rect x="75" y="24" width="30" height="30" rx="2" stroke="currentColor" stroke-width="2"/><path d="M76 46l8-9 7 7 5-5 8 7" stroke="currentColor" stroke-width="1.5"/><circle cx="96" cy="32" r="2.5" fill="currentColor"/></svg>
-            <span class="project-wordmark">Katachi<span>Images ready for their next use.</span></span>
-            <span class="art-corner">04 / IMAGE WORKFLOWS</span>
+        <article class="project-card" id="project-hitoiki">
+          <div class="project-art art-summary" id="project-katachi" aria-hidden="true">
+            <span class="project-kicker">BREAK REMINDERS</span>
+            <svg width="112" height="74" viewBox="0 0 112 74" fill="none"><rect x="9" y="6" width="94" height="55" rx="5" stroke="currentColor" stroke-width="2"/><path d="M56 61v7M37 68h38" stroke="currentColor" stroke-width="2"/><circle cx="56" cy="33" r="19" stroke="currentColor" stroke-width="2" opacity=".45"/><path d="M56 14a19 19 0 0 1 19 19" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M50 26v14M62 26v14" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+            <span class="project-wordmark">Hitoiki<span>A moment to step away.</span></span>
+            <span class="art-corner">04 / TAKING A BREAK</span>
           </div>
           <div class="project-body">
-            <div class="project-meta"><span>Image conversion / Windows app</span><span class="status">Download available</span></div>
-            <h3>Bring repeated image preparation into one batch.</h3><p class="project-name">Katachi.Win</p>
+            <div class="project-meta"><span>Break reminders / macOS &amp; Windows</span><span class="status">Download available</span></div>
+            <h3>Build a cue to take a break into the screen.</h3><p class="project-name">Hitoiki</p>
             <dl class="case-details">
-              <div><dt>Problem</dt><dd>Preparing images with different formats and dimensions involves more than choosing a file type: orientation, transparency, and duplicate filenames also need attention.</dd></div>
-              <div><dt>Approach</dt><dd>Set conversion rules and exceptions up front so the same steps do not have to be repeated for every image. Offer only output formats available on the machine.</dd></div>
-              <div><dt>Design</dt><dd>Set format, quality, size, naming, and duplicate-file rules for a batch. Conversion handles orientation and background compositing for formats without transparency, with progress and cancellation controls.</dd></div>
-              <div><dt>Result &amp; status</dt><dd>A downloadable Windows release is available. Format support depends on the machine; WebP and AVIF output are unsupported. The published record still lists manual hardware checks as pending.</dd></div>
-              <div><dt>Tech</dt><dd>C++ / WinUI 3 / Windows.Graphics.Imaging</dd></div>
+              <div><dt>Problem</dt><dd>When absorbed in a task, it is easy to miss a break. A cue is needed to notice the time and pause the work.</dd></div>
+              <div><dt>Approach</dt><dd>Let a schedule and a screen prompt carry the task of remembering a break. At set intervals or clock times, a break view appears on every display to create a pause in the work.</dd></div>
+              <div><dt>Design</dt><dd>After a few flashes, a dark overlay and countdown cover every display. Schedules falling in the same minute are merged, and holding Esc for three seconds ends a break early. Settings stay on the device; the app makes no network requests.</dd></div>
+              <div><dt>Result &amp; status</dt><dd>Downloads are available for macOS (Apple silicon) and Windows. First launch requires OS confirmation. The app is a reminder rather than a complete input lock; detailed settings are edited in a JSON file.</dd></div>
+              <div><dt>Tech</dt><dd>TypeScript / Electron</dd></div>
             </dl>
-            <a class="project-link" href="https://github.com/SilentMalachite/Katachi.Win/releases">Get Katachi for Windows <span aria-hidden="true">↗</span></a>
-            <div class="project-sub-links"><a href="https://github.com/SilentMalachite/Katachi.Win">Explore Katachi.Win on GitHub</a></div>
+            <a class="project-link" href="https://github.com/SilentMalachite/hitoiki/releases">Get Hitoiki <span aria-hidden="true">↗</span></a>
+            <div class="project-sub-links"><a href="https://github.com/SilentMalachite/hitoiki">Explore Hitoiki on GitHub</a></div>
           </div>
         </article>
       </div>
@@ -283,7 +283,7 @@
 
   <footer class="site-footer section-wrap">
     <div class="footer-top"><a class="brand" href="#top"><img src="../assets/favicon.svg" width="40" height="40" alt=""><span>SilentMalachite<span class="brand-caption">PEOPLE, WORK &amp; TECHNOLOGY</span></span></a><div><a href="https://silentmalachite.github.io/A11yLab/" hreflang="ja">A11yLab (Japanese) <span aria-hidden="true">↗</span></a><a href="https://github.com/SilentMalachite">GitHub <span aria-hidden="true">↗</span></a><a class="language-link" href="../index.html" lang="ja" hreflang="ja">日本語</a><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div></div>
-    <div class="footer-bottom"><small>© 2026 SilentMalachite</small><small>Site updated: <time datetime="2026-09-14">2026.09.14</time></small><span>Made with care, for people.</span></div>
+    <div class="footer-bottom"><small>© 2026 SilentMalachite</small><small>Site updated: <time datetime="2026-09-29">2026.09.29</time></small><span>Made with care, for people.</span></div>
   </footer>
 </body>
 </html>

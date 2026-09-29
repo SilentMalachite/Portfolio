@@ -120,7 +120,7 @@ for relative, locale, image_name, switch in (("index.html", "ja_JP", "ogp.png", 
 
     if home.sections != ["strengths", "services", "projects", "engineering", "approach", "about", "contact"]:
         errors.append(f"{relative}: incorrect V2 section order")
-    if home.case_ids != ["project-soujo", "project-alchemiiif", "project-utsushi", "project-katachi"]:
+    if home.case_ids != ["project-soujo", "project-alchemiiif", "project-utsushi", "project-hitoiki"]:
         errors.append(f"{relative}: incorrect case-study priority")
     if home.counts != {"services": 3, "approach": 4, "contact": 6}:
         errors.append(f"{relative}: requires 3 services, 4 approach items, and 6 contact examples")

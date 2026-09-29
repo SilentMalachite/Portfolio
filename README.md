@@ -57,7 +57,7 @@ python3 scripts/check_site.py
 
 ## 原稿の出典
 
-確認日: **2026-09-14**（主要4事例・Tsumugi・SummaryTalk・Ayumi・MonoOto）。A11yLab・OmniArchive・BudgetTrackerの説明は2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
+確認日: **2026-09-29**（Hitoiki）。Soujo・AlchemIIIF・Utsushi.Win・Tsumugi・SummaryTalk・Ayumi・MonoOtoは2026-09-14、A11yLab・OmniArchive・BudgetTrackerは2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
 
 | 対象 | 確認した公開資料 |
 | --- | --- |
@@ -67,7 +67,7 @@ python3 scripts/check_site.py
 | OmniArchive | [README](https://github.com/SilentMalachite/OmniArchive#readme) |
 | Soujo（層序） | [日本語README](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/Soujo#readme)、[仕様書](https://github.com/SilentMalachite/Soujo/blob/main/SPEC.ja.md)。2026-09-14確認 |
 | Utsushi.Win | [README](https://github.com/SilentMalachite/Utsushi.Win#readme)、[v0.2.0](https://github.com/SilentMalachite/Utsushi.Win/releases/tag/v0.2.0)。2026-09-14に非プレリリースと `Utsushi-0.2.0-win-x64.zip` の添付を確認。GUI/CLIの変換工程と制限を照合 |
-| Katachi.Win | [README](https://github.com/SilentMalachite/Katachi.Win#readme)、[v1.0](https://github.com/SilentMalachite/Katachi.Win/releases/tag/v1.0)、[受け入れ確認記録](https://github.com/SilentMalachite/Katachi.Win/blob/v1.0/docs/acceptance.md)。2026-09-14に非プレリリースと `Katachi-1.0-win-x64.zip` の添付を確認。実機手動確認の未了、形式の制約、Qt版からの独立実装を反映 |
+| Hitoiki（一息） | [日本語README](https://github.com/SilentMalachite/hitoiki/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/hitoiki#readme)、[v0.2.0](https://github.com/SilentMalachite/hitoiki/releases/tag/v0.2.0)。2026-09-29に公開・非fork、非プレリリースと `hitoiki-0.2.0-arm64.dmg`、`hitoiki-0.2.0-arm64-mac.zip`、`hitoiki.Setup.0.2.0.exe` を確認。休憩表示、予定の重複統合、緊急解除、端末内の設定と通信なし、初回起動・入力ロック・設定方法の制限を照合 |
 | Tsumugi | [README](https://github.com/SilentMalachite/Tsumugi#readme)。記録・工賃計算と請求機能の未完成範囲を確認 |
 | Ayumi | [README](https://github.com/SilentMalachite/Ayumi#readme)。個別支援計画・支援記録、PC1台とLANの構成、請求機能は対象外と確認 |
 | BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
@@ -78,6 +78,23 @@ python3 scripts/check_site.py
 現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英のAboutに略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
 
 Contactには、本人が公開用として指定したX・Facebookのリンクと、「@」を「[at]」に置き換えたメールアドレスを掲載しています。
+
+## Hitoikiへの差し替え（2026-09-29）
+
+本人の指示を受け、日英の主要4番目をKatachi.WinからHitoikiへ変更しました。「休憩のきっかけを、画面の中につくる。」という見出しで、没頭時の休憩を画面表示で促す設計を紹介しています。主要順はSoujo → AlchemIIIF → Utsushi.Win → Hitoiki。主要4件・補足5件・関連2件の計11作品です。
+
+配布ページとソースへのリンクを更新し、図版は休憩を表す静的なモニターと一時停止の図に変更。新しいIDは `project-hitoiki` とし、旧 `project-katachi` は同じカード位置へ案内する互換アンカーとして保持しています。アプリの実行や健康・認知負荷への効果を、このサイト作業で検証したとは書いていません。
+
+今回のローカル確認:
+
+- `python3 scripts/check_site.py` と `git diff --check` が成功。日英で既存IDをすべて維持し、Katachiの表示文と外部リンクがHitoikiへ置き換わったことを確認。
+- Chromeで日英を1440 / 768 / 320px幅で表示。320pxで計算済み文字サイズを200%にしても横方向のはみ出しなし。新しいカードとリンクを目視確認。
+- 日英の新旧アンカー、配布・ソースリンクのキーボードフォーカス、JavaScript無効時の本文とリンクを確認。新しい外部リンク2件はHTTP 200。
+- 日本語紹介文を校正ツールと通読で確認。文長の均質さの指摘1件は、短い定型カードの読みやすさを優先して維持。根拠のない効果や作者の属性を加えていないことを再確認。
+
+コミット・push・公開は未実施です。Safari、実機スマートフォン、VoiceOver、印刷、Hitoiki自体の動作は今回未検証です。
+
+以下の公開・検証記録は差し替え前の各作業時点の結果です。
 
 ## V2公開確認（2026-09-14）
 
