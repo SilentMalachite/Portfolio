@@ -57,12 +57,12 @@ python3 scripts/check_site.py
 
 ## 原稿の出典
 
-確認日: **2026-09-29**（Hitoiki）。Soujo・AlchemIIIF・Utsushi.Win・Tsumugi・SummaryTalk・Ayumi・MonoOtoは2026-09-14、A11yLab・OmniArchive・BudgetTrackerは2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
+確認日: **2026-10-10**（SystemSoundsCaptions）。Hitoikiは2026-09-29、Soujo・AlchemIIIF・Utsushi.Win・Tsumugi・Ayumi・MonoOtoは2026-09-14、A11yLab・OmniArchive・BudgetTrackerは2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
 
 | 対象 | 確認した公開資料 |
 | --- | --- |
 | A11yLab | [サイト](https://silentmalachite.github.io/A11yLab/)、[要約筆記と制作背景](https://silentmalachite.github.io/A11yLab/hearing/2026-01-03-summaryapp/)、[キーボード操作](https://silentmalachite.github.io/A11yLab/physical/2026-01-02-keyboard-nav/)、[字幕](https://silentmalachite.github.io/A11yLab/hearing/2026-01-01-captions/)、[コントラスト](https://silentmalachite.github.io/A11yLab/visual/2026-01-01-color-contrast/) |
-| SummaryTalk | [README](https://github.com/SilentMalachite/SummaryTalk#readme)。開発中Beta、一部IPtalkプロトコルは検証待ち |
+| SystemSoundsCaptions | [README](https://github.com/SilentMalachite/SystemSoundsCaptions#readme)、[v1.0.3](https://github.com/SilentMalachite/SystemSoundsCaptions/releases/tag/v1.0.3)。2026-10-10に公開・非fork、非プレリリースと `SystemSoundsCaptions-1.0.3-mac-arm64.dmg`、`SystemSoundsCaptions-1.0.3-windows-x64.zip`、`SystemSoundsCaptions.jar` を確認。端末内の音声認識、字幕ウィンドウ、システム音声に必要なループバック用デバイスを照合 |
 | AlchemIIIF | [README](https://github.com/SilentMalachite/AlchemIIIF#readme)。考古学の専門性と福祉をつなぐ掲載意図は本人の指定 |
 | OmniArchive | [README](https://github.com/SilentMalachite/OmniArchive#readme) |
 | Soujo（層序） | [日本語README](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/Soujo#readme)、[仕様書](https://github.com/SilentMalachite/Soujo/blob/main/SPEC.ja.md)。2026-09-14確認 |
@@ -78,6 +78,15 @@ python3 scripts/check_site.py
 現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英のAboutに略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
 
 Contactには、本人が公開用として指定したX・Facebookのリンクと、「@」を「[at]」に置き換えたメールアドレスを掲載しています。
+
+## SystemSoundsCaptionsへの差し替え（2026-10-10）
+
+本人の指示により、補足事例5番目のSummaryTalkをSystemSoundsCaptionsへ差し替えました。公開README・v1.0.3リリース（非プレリリース、macOS Apple silicon用dmg・Windows x64用zip・jar）を確認し、状態は「配布版あり」、補助導線は配布ページとしました。SummaryTalk用だったA11yLab制作背景記事へのリンクは外しています。旧ID `project-summarytalk` は同じカード内の互換アンカーとして残しました。
+
+- `python3 scripts/check_site.py` と `git diff --check`: 成功。リポジトリと配布ページのURLはHTTP 200。
+- Chrome（Playwright）: 日英320pxと日本語1440pxで新カードを目視確認し、320pxで横方向のはみ出しなし。見出しが語の途中で折り返さないよう `<wbr>` を入れました。
+
+アプリ自体の実行、Safari・実機スマートフォン・VoiceOver・公開環境の確認は未実施です。
 
 ## Hitoikiへの差し替え（2026-09-29）
 
