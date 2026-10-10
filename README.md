@@ -86,7 +86,9 @@ Contactには、本人が公開用として指定したX・Facebookのリンク�
 - `python3 scripts/check_site.py` と `git diff --check`: 成功。リポジトリと配布ページのURLはHTTP 200。
 - Chrome（Playwright）: 日英320pxと日本語1440pxで新カードを目視確認し、320pxで横方向のはみ出しなし。見出しが語の途中で折り返さないよう `<wbr>` を入れました。
 
-アプリ自体の実行、Safari・実機スマートフォン・VoiceOver・公開環境の確認は未実施です。
+このローカル確認時点ではコミット・push・公開は未実施でした。アプリ自体の実行、Safari、実機スマートフォン、VoiceOverは今回未検証です。
+
+同日の追加指示で、コミット `99ee7471532f59eb2db6b13e288b35426e2c22e6` を `origin/main` へpushしました。[公開処理](https://github.com/SilentMalachite/Portfolio/actions/runs/38054656195)は成功。公開artifactは `site/` の11ファイルだけで、配信中の全11ファイルもSHA-256がローカル版と一致しました。公開URLをChrome（Playwright）で日本語320px・英語1440px幅で表示し、SystemSoundsCaptionsの掲載、横方向のはみ出しなし、旧アンカー `#project-summarytalk` から新カードへの到達、リポジトリと配布ページへのリンク先を確認しました。存在しない階層はHTTP 404を返します。
 
 ## Hitoikiへの差し替え（2026-09-29）
 
