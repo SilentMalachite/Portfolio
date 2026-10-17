@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1] / "site"
 BASE = "https://silentmalachite.github.io/Portfolio/"
-REQUIRED = ("index.html", "en/index.html", "404.html", "assets/styles.css", "assets/hero-motion.js", "assets/favicon.svg", "assets/ogp.png", "assets/ogp-en.png")
+REQUIRED = ("index.html", "en/index.html", "404.html", "assets/styles.css", "assets/favicon.svg", "assets/paper-2.jpg", "assets/ogp.png", "assets/ogp-en.png")
 errors = []
 
 
@@ -41,10 +41,8 @@ class Page(HTMLParser):
             self.h1 += 1
         if tag == "html":
             self.lang = a.get("lang")
-        if tag == "script" and (a.get("src") not in {
-            "./assets/hero-motion.js?v=20260911-replay2", "../assets/hero-motion.js?v=20260911-replay2"
-        } or "defer" not in a):
-            errors.append("Only the deferred local hero replay enhancement is allowed")
+        if tag == "script":
+            errors.append("Script tags are not allowed")
         if tag == "img" and ("alt" not in a or not a.get("width") or not a.get("height")):
             errors.append("Images require alt and explicit dimensions")
         if tag == "meta":
@@ -144,7 +142,7 @@ size = sum(p.stat().st_size for p in files if p.is_file())
 if size > 1_000_000:
     errors.append("Public directory exceeds conservative 1MB budget")
 for p in files:
-    if p.is_symlink() or (p.is_file() and p.suffix not in {".html", ".css", ".svg", ".png"} and p != ROOT / "assets/hero-motion.js"):
+    if p.is_symlink() or (p.is_file() and p.suffix not in {".html", ".css", ".svg", ".png", ".jpg"}):
         errors.append(f"Unexpected public artifact: {p.relative_to(ROOT)}")
 if errors:
     print("\n".join(f"FAIL: {error}" for error in errors))
