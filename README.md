@@ -1,6 +1,6 @@
 # SilentMalachite Portfolio
 
-業務整理・AI活用・小規模なソフトウェアの試作を相談できる、個人の事業サイト兼ポートフォリオです。HTML/CSSによる静的サイトとして実装しています。
+業務整理・AI活用・小規模なソフトウェアの試作を相談できる、個人の事業サイト兼ポートフォリオです。業務受託の相談に向けて、サービスごとの成果物・期間・料金の目安と依頼の流れを載せています。HTML/CSSによる静的サイトとして実装しています。
 
 ## ローカル表示
 
@@ -16,7 +16,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 
 | ファイル | 役割 |
 | --- | --- |
-| `site/index.html` | 日本語版。Hero、仕事の整理、3サービス、主要4事例と補足作品、Approach、About、Contact |
+| `site/index.html` | 日本語版。Hero、仕事の整理、3サービスと料金の目安、主要4事例と補足作品、依頼の流れと品質基準（Workflow & Quality）、About、Contact |
 | `site/en/index.html` | 同じ事例・状態注記を含む英語版 |
 | `site/assets/styles.css` | 配色・レイアウト・レスポンシブ・フォーカス・印刷表示 |
 | `site/assets/filter.js` | 分野を選ぶと該当項目を強調する。項目の本文はHTMLにあり、どの項目も隠さない |
@@ -40,7 +40,7 @@ OGPのPNGはSVGから生成済みです。変更時は、SVGの日本語フォ�
 python3 scripts/check_site.py
 ```
 
-標準ライブラリのみを使用します。ページ内リンク・画像参照、A11yLabの直リンク2箇所、V2のセクション順・主要事例順・3サービス・4つの設計方針・6つの相談例、OGP、404の戻り先、公開ファイルの合計1MB以内などを検査します。外部リンク先の可用性、見た目、読み上げの品質を保証するものではありません。
+標準ライブラリのみを使用します。ページ内リンク・画像参照、A11yLabの直リンク2箇所、V2のセクション順・主要事例順・3サービス・依頼の流れ4段階・6つの相談例、OGP、404の戻り先、公開ファイルの合計1MB以内などを検査します。外部リンク先の可用性、見た目、読み上げの品質を保証するものではありません。
 
 ## GitHub Pagesへの公開
 
@@ -59,7 +59,7 @@ python3 scripts/check_site.py
 
 ## 原稿の出典
 
-確認日: **2026-10-10**（SystemSoundsCaptions）。Hitoikiは2026-09-29、Soujo・AlchemIIIF・Utsushi.Win・Tsumugi・Ayumi・MonoOtoは2026-09-14、A11yLab・OmniArchive・BudgetTrackerは2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
+確認日: **2026-10-17**（Hitoiki・Utsushi.WinのREADME）。SystemSoundsCaptionsは2026-10-10、Hitoikiの配布物は2026-09-29、Soujo・AlchemIIIF・Utsushi.Winの配布物・Tsumugi・Ayumi・MonoOtoは2026-09-14、A11yLab・OmniArchive・BudgetTrackerは2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
 
 | 対象 | 確認した公開資料 |
 | --- | --- |
@@ -67,9 +67,9 @@ python3 scripts/check_site.py
 | SystemSoundsCaptions | [README](https://github.com/SilentMalachite/SystemSoundsCaptions#readme)、[v1.0.3](https://github.com/SilentMalachite/SystemSoundsCaptions/releases/tag/v1.0.3)。2026-10-10に公開・非fork、非プレリリースと `SystemSoundsCaptions-1.0.3-mac-arm64.dmg`、`SystemSoundsCaptions-1.0.3-windows-x64.zip`、`SystemSoundsCaptions.jar` を確認。端末内の音声認識、字幕ウィンドウ、システム音声に必要なループバック用デバイスを照合 |
 | AlchemIIIF | [README](https://github.com/SilentMalachite/AlchemIIIF#readme)。考古学の専門性と福祉をつなぐ掲載意図は本人の指定 |
 | OmniArchive | [README](https://github.com/SilentMalachite/OmniArchive#readme) |
-| Soujo（層序） | [日本語README](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/Soujo#readme)、[仕様書](https://github.com/SilentMalachite/Soujo/blob/main/SPEC.ja.md)。2026-09-14確認 |
-| Utsushi.Win | [README](https://github.com/SilentMalachite/Utsushi.Win#readme)、[v0.2.0](https://github.com/SilentMalachite/Utsushi.Win/releases/tag/v0.2.0)。2026-09-14に非プレリリースと `Utsushi-0.2.0-win-x64.zip` の添付を確認。GUI/CLIの変換工程と制限を照合 |
-| Hitoiki（一息） | [日本語README](https://github.com/SilentMalachite/hitoiki/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/hitoiki#readme)、[v0.2.0](https://github.com/SilentMalachite/hitoiki/releases/tag/v0.2.0)。2026-09-29に公開・非fork、非プレリリースと `hitoiki-0.2.0-arm64.dmg`、`hitoiki-0.2.0-arm64-mac.zip`、`hitoiki.Setup.0.2.0.exe` を確認。休憩表示、予定の重複統合、緊急解除、端末内の設定と通信なし、初回起動・入力ロック・設定方法の制限を照合 |
+| Soujo（層序） | [日本語README](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/Soujo#readme)、[仕様書](https://github.com/SilentMalachite/Soujo/blob/main/SPEC.ja.md)。2026-09-14確認。日常の開発で使用し、引き継ぎ・再開の基盤として機能していることは2026-10-17の本人申告で、このサイト作業では検証していない |
+| Utsushi.Win | [README](https://github.com/SilentMalachite/Utsushi.Win#readme)、[v0.2.0](https://github.com/SilentMalachite/Utsushi.Win/releases/tag/v0.2.0)。2026-09-14に非プレリリースと `Utsushi-0.2.0-win-x64.zip` の添付を確認。GUI/CLIの変換工程と制限を照合。2026-10-17にREADMEで、GUIはパスワード付きPDFを変換できず、CLIの `--password` で扱えることを再確認 |
+| Hitoiki（一息） | [日本語README](https://github.com/SilentMalachite/hitoiki/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/hitoiki#readme)、[v0.2.0](https://github.com/SilentMalachite/hitoiki/releases/tag/v0.2.0)。2026-09-29に公開・非fork、非プレリリースと `hitoiki-0.2.0-arm64.dmg`、`hitoiki-0.2.0-arm64-mac.zip`、`hitoiki.Setup.0.2.0.exe` を確認。休憩表示、予定の重複統合、緊急解除、端末内の設定と通信なし、初回起動・入力ロック・設定方法の制限を照合。2026-10-17に英語READMEで、Esc 3秒長押しの緊急解除と、トレイから開く設定画面・JSONファイルでの設定を再確認 |
 | Tsumugi | [README](https://github.com/SilentMalachite/Tsumugi#readme)。記録・工賃計算と請求機能の未完成範囲を確認 |
 | Ayumi | [README](https://github.com/SilentMalachite/Ayumi#readme)。個別支援計画・支援記録、PC1台とLANの構成、請求機能は対象外と確認 |
 | BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
@@ -77,9 +77,44 @@ python3 scripts/check_site.py
 
 ## 今後本人が具体化できる項目
 
-現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英のAboutに略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
+現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英のAboutに略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。2026-10-17の本人指定により、QA経験「MozillaのWebテストプロジェクトにコミュニティとして参加」と、福祉・医療・教育・文化財の現場経験を生かせるという強みを追加しました。参加時期・役割は未提供です。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
 
 Contactには、本人が公開用として指定したX・Facebookのリンクと、「@」を「[at]」に置き換えたメールアドレスを掲載しています。
+
+## 事例の制限表現の見直し（2026-10-17、`75adfb4`）
+
+本人の指示により、発注を検討する人に開発が止まる印象を与えないよう、事例と現在の探求の制限を、対象範囲・役割分担・開発の順序として書き直した。日英とも同じ6か所を変えた。
+
+- Soujo: 「効果は未測定」を、日常の開発で使用し、引き継ぎ・再開の基盤として機能しているという本人申告に基づく文へ。効果の数値は書いていない。
+- Utsushi.Win: GUIは日常の定型作業、パスワード付きPDFなどの一括処理はCLIという役割分担として説明。
+- Hitoiki: 操作を完全には遮断しない設計と、外部ファイルでの設定として説明。
+- Ayumi・Tsumugi: 請求を対象外・未完成とする事実はSPECに残し、公開文では支援記録・期限管理への特化、記録と工賃計算のコア機能から構築中と書いた。
+- Case Studies末尾の注記: 「受託・導入実績や効果測定を示すものではない」を、自身の制作物による設計・実装事例であることと、カスタマイズ・試作開発の受付に変えた。
+
+確認（公開サイトを Playwright の Chromium で表示）:
+
+- `python3 scripts/check_site.py` が成功。Actions の公開が成功し、日英の公開HTMLに新しい文があり旧い文がないことを確認。
+- 日本語版1440px・320px、英語版768pxで、制作事例と現在の探求に横方向のはみ出しなし。
+- 英語版768pxでは、Utsushi.Winの「Tech」の値がラベルの下に折り返し、Hitoikiと揃わない。今回の変更前からの表示。
+
+Safari、実機スマートフォン、200%の文字拡大、VoiceOverは未検証。
+
+## 料金の目安と依頼の流れ（2026-10-17、`afb0b6a`）
+
+本人の指示により、サイトを業務受託の相談を受ける構成へ進めた。SPECの目的・編集方針・受け入れ条件も同時に改訂した。
+
+- Services: 3サービスそれぞれに「成果物例」「期間・目安」を `dl.project-note` で追加。金額は「〜円から」「税込」「お見積り」の条件付きで、SPEC 3.1の表と一致させた。CSSにあった未使用の `.project-note` を使い、CSSは変えていない。
+- My Approachを「Workflow & Quality」（ご依頼の流れと品質基準）に置き換えた。ヒアリング・課題整理（無料）、スコープ定義・お見積り、小さな試作と確認、品質検証（QA）と納品の4段階。品質検証は工程として書き、品質の保証とはしていない。ID `approach` は維持。
+- About: QA経験と強みを追加。QA経験は職歴ではないため略歴の並びに入れていない。
+
+確認:
+
+- `python3 scripts/check_site.py` が成功。日英のHTMLを構文解析し、閉じタグの不足、入れ子の誤り、IDの重複がなく、h1は1つで見出しの階層の飛びがないことを確認。
+- Actions の公開が成功。公開サイトを Playwright の Chromium で表示し、日本語版1440px・320px、英語版768pxで、Services・Workflow & Quality・Aboutに横方向のはみ出しなし。
+- 目安の枠の文字（14px）と背景のコントラストは5.42:1。
+- 印刷用の表示にしても、目安の枠、4段階、Aboutの項目は非表示にならない。印刷プレビューの見た目は未確認。
+
+Safari、実機スマートフォン、200%の文字拡大、VoiceOverは未検証。
 
 ## スマートフォン向けヒーロー画像の軽量化（2026-10-17）
 
