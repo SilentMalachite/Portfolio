@@ -19,6 +19,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 | `site/index.html` | 日本語版。Hero、仕事の整理、3サービス、主要4事例と補足作品、Approach、About、Contact |
 | `site/en/index.html` | 同じ事例・状態注記を含む英語版 |
 | `site/assets/styles.css` | 配色・レイアウト・レスポンシブ・フォーカス・印刷表示 |
+| `site/assets/filter.js` | 分野の絞り込み。項目の本文はHTMLにあり、無効時は全件が表示される |
 | `site/assets/favicon.svg` | 2つの経路をつなぐ独自のモノグラム。ヘッダー・フッターでも使用 |
 | `site/assets/paper-2.jpg` | ヒーロー右列の静止画。テキストは写真に重ねない |
 | `site/assets/ogp.svg` / `ogp.png` | SNS共有用の原稿と1200×630の配信用画像 |
@@ -28,7 +29,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 | `.github/workflows/pages.yml` | 静的検査後に `site/` だけをGitHub Pagesへ公開 |
 | `AGENTS.md` / `SPEC.md` | 作業規約と製品仕様・受け入れ条件 |
 
-閲覧のためのJavaScript、フレームワーク、Webフォント、トラッカー、外部画像、ビルド用の依存インストールは不要です。ヒーロー図版は `site/assets/paper-2.jpg` で、日英のCSS参照には更新識別子 `?v=20261017-premises` を付けています。作品の色付き図版はこのポートフォリオ用の装飾で、実際のアプリ画面や各作品の既存公式ロゴではありません。
+分野の絞り込みだけ `site/assets/filter.js` を使います。フレームワーク、Webフォント、トラッカー、外部画像、ビルド用の依存インストールは不要です。本文はJavaScriptを無効にしても読めます。ヒーロー図版は `site/assets/paper-2.jpg` で、日英のCSS参照には更新識別子 `?v=20261017-explore2` を付けています。作品の色付き図版はこのポートフォリオ用の装飾で、実際のアプリ画面や各作品の既存公式ロゴではありません。
 
 OGPのPNGはSVGから生成済みです。変更時は、SVGの日本語フォントが正しく表示される環境で1200×630のPNGへ書き出し、文字欠けを目視確認してください。V2の生成にはローカルのChromeによるSVG表示とPNG書き出しを使用しましたが、閲覧・公開時の依存には含まれません。
 
@@ -78,6 +79,20 @@ python3 scripts/check_site.py
 現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英のAboutに略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
 
 Contactには、本人が公開用として指定したX・Facebookのリンクと、「@」を「[at]」に置き換えたメールアドレスを掲載しています。
+
+## 絞り込みと現在の探求（2026-10-17）
+
+CASE STUDIES の先頭に Soujo の短い導入を置き、WHAT I DO の3ステップをティールの線でつないだ。Ayumi、Tsumugi、BudgetTracker、MonoOto は MORE WORK から「現在の探求」へ移し、各1〜2文と GitHub リンク、状態の注記を残した。事例・補足・探求には分野タグを付け、`site/assets/filter.js` で1つずつ絞り込める。JavaScript を無効にすると絞り込みは出ず、全文が残る。
+
+ローカル確認（`/Portfolio/` 配下を HTTP 配信、Headless Chrome）:
+
+- `python3 scripts/check_site.py` と `git diff --check` が成功。
+- 日本語の 1440 / 768 / 320px と英語の 1440 / 320px で横方向のはみ出しなし。WHAT I DO、Soujo の導入、絞り込み、現在の探求を表示確認。
+- 日英の 320px で文字200%にしても横方向のはみ出しなし。絞り込みボタンの高さは44pxで、フォーカス枠を確認。
+- 「福祉」「AI開発」「休憩・作業支援」では該当項目だけが残る。空の並びには案内が出る。「すべて」と、絞り込み中の `#project-soujo` へのページ内リンクで全件に戻る。英語の Welfare も同じ動き。
+- JavaScript 無効では日英とも絞り込みが非表示で、主要4件、補足3件、探求4件が読める。
+
+Safari、実機スマートフォン、VoiceOver、印刷プレビュー、公開環境は未検証。コミットと push はしていない。
 
 ## SystemSoundsCaptionsへの差し替え（2026-10-10）
 

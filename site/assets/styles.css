@@ -118,9 +118,11 @@ h1,h2,h3 {
   top:12px;
   left:16px;
   z-index:10;
+  max-width:calc(100vw - 32px);
   background:var(--green);
   color:#fff;
   padding:12px 24px;
+  white-space:normal;
   transform:translateY(-150%);
 }
 
@@ -440,6 +442,32 @@ h2 {
   padding-left:35px;
 }
 
+.process-steps article {
+  position:relative;
+}
+
+.process-steps .item-number {
+  color:var(--accent-strong);
+  font-weight:600;
+}
+
+.process-steps article+article {
+  border-left-color:var(--accent);
+}
+
+.process-steps article+article::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:2.6rem;
+  width:0.55rem;
+  height:0.55rem;
+  border-top:2px solid var(--accent);
+  border-right:2px solid var(--accent);
+  background:var(--paper);
+  transform:translate(-50%,0) rotate(45deg);
+}
+
 .item-number {
   font-size:var(--text-xs);
   letter-spacing:0.06em;
@@ -489,6 +517,111 @@ h2 {
 .projects {
   background:var(--sage);
   padding-block:var(--space-3xl);
+}
+
+.soujo-feature {
+  background:var(--accent-soft);
+  border-left:4px solid var(--accent);
+  padding:28px 32px;
+  margin-bottom:var(--space-xl);
+}
+
+.soujo-feature h3 {
+  font:500 var(--text-2xl)/var(--leading-heading) var(--serif);
+  margin:8px 0 12px;
+}
+
+.soujo-feature > p:not(.eyebrow) {
+  max-width:42rem;
+  line-height:var(--leading-body);
+}
+
+.project-filter {
+  margin-bottom:var(--space-lg);
+}
+
+.filter-label {
+  margin-bottom:10px;
+  font-size:var(--text-md);
+  font-weight:600;
+}
+
+.filter-controls {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.filter-controls button {
+  appearance:none;
+  min-height:44px;
+  max-width:100%;
+  padding:8px 14px;
+  border:1px solid var(--accent);
+  border-radius:2px;
+  background:transparent;
+  color:var(--accent-strong);
+  font:inherit;
+  font-size:1rem;
+  line-height:1.4;
+  white-space:normal;
+  cursor:pointer;
+}
+
+.filter-controls button[aria-pressed="true"] {
+  background:var(--accent);
+  color:var(--panel-text);
+}
+
+.filter-controls button:focus-visible {
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+}
+
+.filter-note,
+.filter-status {
+  margin-top:10px;
+  color:var(--muted);
+  line-height:var(--leading-body);
+}
+
+.filter-status:empty {
+  margin-top:0;
+}
+
+.filter-empty {
+  margin-top:var(--space-md);
+}
+
+.tag-list {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem;
+  margin:0.75rem 0 0;
+  padding:0;
+  list-style:none;
+}
+
+.tag-list li {
+  margin:0;
+  padding:0.1rem 0.6rem;
+  border:1px solid var(--accent);
+  border-radius:2px;
+  color:var(--accent-strong);
+  font-size:1rem;
+  line-height:1.6;
+}
+
+.project-name:has(+ .tag-list) {
+  margin-bottom:10px;
+}
+
+.project-body .tag-list {
+  margin-bottom:16px;
+}
+
+.is-filtered-out {
+  display:none;
 }
 
 .project-grid {
@@ -704,10 +837,11 @@ h2 {
 
 .status {
   font-size:var(--text-sm);
+  max-width:100%;
   padding:2px 8px;
   border:1px solid var(--muted);
   border-radius:2px;
-  white-space:nowrap;
+  white-space:normal;
   font-weight:400;
   line-height:1.8;
   color:var(--accent);
@@ -805,17 +939,22 @@ h2 {
   margin-top:3px;
 }
 
+.engineering-list article > div {
+  min-width:0;
+}
+
 .engineering-list h3 {
   font:25px/1.5 Georgia,serif;
   margin-bottom:8px;
+  text-wrap:wrap;
 }
 
 .engineering-list h3 a {
-  display:inline-flex;
-  align-items:center;
-  gap:24px;
+  display:inline-block;
+  max-width:100%;
   text-decoration:none;
   min-height:44px;
+  line-height:1.4;
 }
 
 .engineering-list h3 a:hover {
@@ -826,6 +965,7 @@ h2 {
   font-family:var(--sans);
   font-size:1em;
   color:var(--accent);
+  margin-left:0.35em;
 }
 
 .engineering-list p {
@@ -881,6 +1021,56 @@ h2 {
 
 .all-repos {
   margin-top:25px;
+}
+
+.exploring {
+  padding-block:var(--space-3xl);
+}
+
+.exploring-list {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-md);
+}
+
+.exploring-list article {
+  min-width:0;
+  background:var(--surface);
+  border-top:3px solid var(--accent);
+  padding:22px 24px 20px;
+}
+
+.exploring-heading {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px 16px;
+}
+
+.exploring-list h3 {
+  font:500 var(--text-lg)/var(--leading-heading) var(--serif);
+}
+
+.exploring-list h3 a {
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  min-height:44px;
+  text-decoration:none;
+}
+
+.exploring-list h3 a:hover {
+  text-decoration:underline;
+}
+
+.exploring-list h3 span {
+  color:var(--accent);
+}
+
+.exploring-list p {
+  color:var(--muted);
+  line-height:var(--leading-body);
 }
 
 .approach {
@@ -1072,7 +1262,7 @@ h2 {
 }
 
 /* 説明本文は画面幅にかかわらず16pxを保つ。 */
-.hero-description,.section-description,.premise-list p,.strength-grid p,.project-body>p:not(.project-name),.engineering-list p,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
+.hero-description,.section-description,.premise-list p,.strength-grid p,.soujo-feature>p:not(.eyebrow),.project-body>p:not(.project-name),.engineering-list p,.exploring-list p,.filter-note,.filter-status,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
   font-size:var(--text-md);
   line-height:var(--leading-body);
 }
@@ -1206,7 +1396,7 @@ h2 {
     font-size:var(--text-xl);
   }
   .engineering-list article {
-    grid-template-columns:32px 1fr 170px;
+    grid-template-columns:32px minmax(0,1fr) 170px;
   }
   .related-work {
     grid-template-columns:125px 1fr 1fr;
@@ -1265,7 +1455,7 @@ h2 {
   .section-wrap {
     padding-inline:var(--gutter);
   }
-  .premises,.strengths,.projects,.engineering,.approach,.about {
+  .premises,.strengths,.projects,.engineering,.exploring,.approach,.about {
     padding-block:var(--space-2xl);
   }
   .premise-list li {
@@ -1315,8 +1505,11 @@ h2 {
   .project-link {
     font-size:var(--text-sm);
   }
+  .exploring-list {
+    grid-template-columns:1fr;
+  }
   .engineering-list article {
-    grid-template-columns:28px 1fr;
+    grid-template-columns:28px minmax(0,1fr);
     gap:5px 18px;
   }
   .tech-label {
@@ -1441,6 +1634,20 @@ h2 {
   .strength-grid article+article {
     border-top:1px solid var(--line);
   }
+  .process-steps article+article {
+    border-top-color:var(--accent);
+  }
+  .process-steps article+article::before {
+    left:1.25rem;
+    top:0;
+    transform:translate(0,-50%) rotate(135deg);
+  }
+  .soujo-feature {
+    padding:22px 20px;
+  }
+  .exploring-list {
+    grid-template-columns:1fr;
+  }
   .strength-grid article:last-child {
     padding-bottom:0;
   }
@@ -1451,7 +1658,7 @@ h2 {
     font-size:var(--text-xs);
     margin-top:12px;
   }
-  .premises,.strengths,.projects,.engineering,.approach,.about {
+  .premises,.strengths,.projects,.engineering,.exploring,.approach,.about {
     padding-block:var(--space-xl);
   }
   .premise-list {
@@ -1595,7 +1802,7 @@ h2 {
 
 /* メディアクエリ後も本文サイズの下限を維持する。 */
 @media screen {
-  .hero-description,.section-description,.premise-list p,.strength-grid p,.project-body>p:not(.project-name),.engineering-list p,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
+  .hero-description,.section-description,.premise-list p,.strength-grid p,.soujo-feature>p:not(.eyebrow),.project-body>p:not(.project-name),.engineering-list p,.exploring-list p,.filter-note,.filter-status,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
     font-size:var(--text-md);
     line-height:var(--leading-body);
   }
@@ -1659,6 +1866,26 @@ h2 {
   .strength-grid article,.strength-grid article+article {
     border:0;
     padding:10px 0;
+  }
+  .process-steps article+article::before {
+    content:none;
+  }
+  .soujo-feature,
+  .exploring-list article {
+    break-inside:avoid;
+  }
+  .is-filtered-out,
+  .engineering-list article.is-filtered-out,
+  .exploring-list article.is-filtered-out,
+  .soujo-feature.is-filtered-out {
+    display:block!important;
+  }
+  .project-card.is-filtered-out {
+    display:flex!important;
+  }
+  .project-filter,
+  .filter-empty {
+    display:none!important;
   }
   .project-card {
     break-inside:avoid;

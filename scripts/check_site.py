@@ -14,7 +14,7 @@ errors = []
 class Page(HTMLParser):
     def __init__(self, text):
         super().__init__()
-        self.ids, self.refs, self.metadata, self.links = [], [], {}, []
+        self.ids, self.refs, self.metadata, self.links, self.scripts = [], [], {}, [], []
         self.sections, self.case_ids = [], []
         self.section = None
         self.counts = {"services": 0, "approach": 0, "contact": 0}
@@ -42,7 +42,7 @@ class Page(HTMLParser):
         if tag == "html":
             self.lang = a.get("lang")
         if tag == "script":
-            errors.append("Script tags are not allowed")
+            self.scripts.append(a.get("src", ""))
         if tag == "img" and ("alt" not in a or not a.get("width") or not a.get("height")):
             errors.append("Images require alt and explicit dimensions")
         if tag == "meta":
@@ -116,8 +116,11 @@ for relative, locale, image_name, switch in (("index.html", "ja_JP", "ogp.png", 
             errors.append(f"Missing section: {anchor}")
 
 
-    if home.sections != ["premises", "strengths", "services", "projects", "engineering", "approach", "about", "contact"]:
+    if home.sections != ["premises", "strengths", "services", "projects", "engineering", "exploring", "approach", "about", "contact"]:
         errors.append(f"{relative}: incorrect V2 section order")
+    expected_script = "./assets/filter.js" if relative == "index.html" else "../assets/filter.js"
+    if home.scripts != [expected_script]:
+        errors.append(f"{relative}: requires only the local filter script")
     if home.case_ids != ["project-soujo", "project-alchemiiif", "project-utsushi", "project-hitoiki"]:
         errors.append(f"{relative}: incorrect case-study priority")
     if home.counts != {"services": 3, "approach": 4, "contact": 6}:
@@ -126,6 +129,8 @@ for relative, locale, image_name, switch in (("index.html", "ja_JP", "ogp.png", 
 not_found = pages.get(ROOT / "404.html")
 if not_found and ("noindex" not in not_found.metadata.get("robots", "") or not {BASE, BASE + "en/"}.issubset(not_found.links)):
     errors.append("404 needs noindex and absolute links to both homepages")
+if not_found and not_found.scripts:
+    errors.append("404 must not include scripts")
 japanese, english = pages.get(ROOT / "index.html"), pages.get(ROOT / "en/index.html")
 if japanese and english:
     if set(japanese.ids) != set(english.ids):
@@ -142,8 +147,10 @@ size = sum(p.stat().st_size for p in files if p.is_file())
 if size > 1_000_000:
     errors.append("Public directory exceeds conservative 1MB budget")
 for p in files:
-    if p.is_symlink() or (p.is_file() and p.suffix not in {".html", ".css", ".svg", ".png", ".jpg"}):
+    if p.is_symlink() or (p.is_file() and p.suffix not in {".html", ".css", ".svg", ".png", ".jpg", ".js"}):
         errors.append(f"Unexpected public artifact: {p.relative_to(ROOT)}")
+    if p.is_file() and p.suffix == ".js" and p.relative_to(ROOT).as_posix() != "assets/filter.js":
+        errors.append(f"Unexpected script file: {p.relative_to(ROOT)}")
 if errors:
     print("\n".join(f"FAIL: {error}" for error in errors))
     sys.exit(1)

@@ -21,7 +21,7 @@
   <meta property="og:image:alt" content="複雑な仕事を整理して、人とAIが無理なく使える仕組みに。SilentMalachiteとティールの経路の図版。">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-  <link rel="stylesheet" href="./assets/styles.css?v=20261017-premises">
+  <link rel="stylesheet" href="./assets/styles.css?v=20261017-explore2">
 </head>
 <body>
   <a class="skip-link" href="#main">本文へスキップ</a>
@@ -73,7 +73,7 @@
         <div><p class="eyebrow">WHAT I DO</p><h2 id="strengths-title">仕事をほどき、<br>扱いやすい形に。</h2></div>
         <p class="section-description">小規模な事業や、福祉・医療・教育の現場へ。<br>何をつくるかが決まる前の、<br>困りごとの整理から始めます。</p>
       </div>
-      <div class="strength-grid">
+      <div class="strength-grid process-steps">
         <article><span class="item-number">01 / OBSERVE</span><h3>仕事の流れを、見える形に。</h3><p>紙、Excel、チャット、手作業に分かれた仕事を観察し、どこで迷い、何を覚え続けているのかを整理します。</p></article>
         <article><span class="item-number">02 / STRUCTURE</span><h3>複雑な課題を、扱える単位に。</h3><p>一度に変えるのではなく、手順や役割を小さく分けます。人の判断が必要なところと、道具に任せられるところを見つけます。</p></article>
         <article><span class="item-number">03 / BUILD</span><h3>必要なところに、技術を。</h3><p>手順書で十分か、AIが役立つか、小さなアプリが必要か。使う人の負担と、続けて運用できることを基準に考えます。</p><a class="text-link" href="#project-utsushi">手作業をまとめた変換ツール <span aria-hidden="true">↗</span></a></article>
@@ -98,8 +98,28 @@
         <div><p class="eyebrow">CASE STUDIES</p><h2 id="projects-title">課題への理解を、<br>具体的なかたちに。</h2></div>
         <p class="section-description">何に困り、どう考え、何をつくったか。<br>仕事と人の制約から考えた、4つの事例。</p>
       </div>
+      <aside class="soujo-feature" data-tags="cognitive ai" aria-labelledby="soujo-highlight-title">
+        <p class="eyebrow">SOUJO</p>
+        <h3 id="soujo-highlight-title">中断しても、続きから始められる</h3>
+        <p>開発を止めるたびに、決めたことや次の作業を思い出す負担があります。Soujoは、仕様・計画・記録・次の一手をファイルに残し、小さな「層」ごとに進めることで、記憶の外から再開できるようにしています。</p>
+        <a class="text-link" href="#project-soujo">Soujoの事例を読む <span aria-hidden="true">↓</span></a>
+      </aside>
+      <div class="project-filter" data-project-filter hidden>
+        <p class="filter-label" id="filter-label">分野で絞り込む</p>
+        <div class="filter-controls" role="group" aria-labelledby="filter-label">
+          <button type="button" aria-pressed="true" data-filter="all">すべて</button>
+          <button type="button" aria-pressed="false" data-filter="welfare">福祉</button>
+          <button type="button" aria-pressed="false" data-filter="heritage">文化財</button>
+          <button type="button" aria-pressed="false" data-filter="cognitive">認知負荷</button>
+          <button type="button" aria-pressed="false" data-filter="ai">AI開発</button>
+          <button type="button" aria-pressed="false" data-filter="workflow">業務整理</button>
+          <button type="button" aria-pressed="false" data-filter="break">休憩・作業支援</button>
+        </div>
+        <p class="filter-note">この絞り込みは、下の制作と現在の探求にも適用されます。</p>
+        <p class="filter-status" data-filter-status aria-live="polite"></p>
+      </div>
       <div class="project-grid">
-        <article class="project-card" id="project-soujo">
+        <article class="project-card" id="project-soujo" data-tags="cognitive ai">
           <div class="project-art art-a11y" aria-hidden="true">
             <span class="project-kicker">INTERRUPTIBLE / RESUMABLE</span>
             <div class="a11y-symbol"><span></span><span></span><span></span></div>
@@ -109,6 +129,7 @@
           <div class="project-body">
             <div class="project-meta"><span>作業設計 / AI開発支援</span><span class="status">ソース公開</span></div>
             <h3>中断しても、続きから始められる。</h3><p class="project-name">Soujo（層序）</p>
+            <ul class="tag-list" aria-label="分野"><li>認知負荷</li><li>AI開発</li></ul>
             <dl class="case-details">
               <div><dt>課題 / Problem</dt><dd>開発を中断するたびに、決めたことや次の作業を思い出す。人の作業記憶やAIの会話履歴に頼るほど、再開や引き継ぎが難しくなります。</dd></div>
               <div><dt>考え方 / Approach</dt><dd>状態を人の頭や会話の外に置き、一度に扱う作業を小さくする。中断と再開を前提に、記憶負荷を下げる設計を考えました。</dd></div>
@@ -121,7 +142,7 @@
           </div>
         </article>
 
-        <article class="project-card" id="project-alchemiiif">
+        <article class="project-card" id="project-alchemiiif" data-tags="welfare heritage workflow">
           <div class="project-art art-alchemiiif" aria-hidden="true">
             <span class="project-kicker">ARCHAEOLOGY &amp; WELFARE</span>
             <svg class="heritage-symbol" width="112" height="74" viewBox="0 0 112 74" fill="none">
@@ -138,6 +159,7 @@
           <div class="project-body">
             <div class="project-meta"><span>文化財 / 業務の工程設計</span><span class="status">ソース公開</span></div>
             <h3>複雑な資料処理を、小さな工程に。</h3><p class="project-name">AlchemIIIF</p>
+            <ul class="tag-list" aria-label="分野"><li>福祉</li><li>文化財</li><li>業務整理</li></ul>
             <dl class="case-details">
               <div><dt>課題 / Problem</dt><dd>発掘調査報告書を公開するには、画像処理、資料情報の整理、確認など多くの工程が必要です。文化財機関の資料公開と、就労継続支援の仕事づくりをつなぐことを目指しています。</dd></div>
               <div><dt>考え方 / Approach</dt><dd>考古学の専門家としての知見を、取り組みやすい作業の分解へ。資料を理解する仕事と、加工・入力・確認の役割を整理します。</dd></div>
@@ -150,7 +172,7 @@
           </div>
         </article>
 
-        <article class="project-card" id="project-utsushi">
+        <article class="project-card" id="project-utsushi" data-tags="workflow">
           <div class="project-art art-archive" aria-hidden="true">
             <span class="project-kicker">PDF TO IMAGES</span>
             <svg width="112" height="74" viewBox="0 0 112 74" fill="none"><path d="M8 5h27l12 12v48H8zM35 5v12h12M16 30h22M16 39h22M16 48h15" stroke="currentColor" stroke-width="2"/><path d="M54 36h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2"/><rect x="74" y="20" width="30" height="42" rx="2" stroke="currentColor" stroke-width="2"/><path d="M79 14h30v42M75 52l9-11 7 6 6-8 7 13" stroke="currentColor" stroke-width="1.5"/><circle cx="83" cy="31" r="3" fill="currentColor"/></svg>
@@ -160,6 +182,7 @@
           <div class="project-body">
             <div class="project-meta"><span>PDF変換 / Windowsアプリ</span><span class="status">配布版あり</span></div>
             <h3>ページごとの画像化を、一つの手順に。</h3><p class="project-name">Utsushi.Win</p>
+            <ul class="tag-list" aria-label="分野"><li>業務整理</li></ul>
             <dl class="case-details">
               <div><dt>課題 / Problem</dt><dd>複数のPDFからページごとの画像を用意するとき、対象ページ、解像度、保存名を繰り返し決め、変換できなかったページも確認する必要があります。</dd></div>
               <div><dt>考え方 / Approach</dt><dd>繰り返す指定をまとめ、出力の見通しを先につける。手元での操作と、定型作業の自動処理の両方から使える形にしました。</dd></div>
@@ -172,7 +195,7 @@
           </div>
         </article>
 
-        <article class="project-card" id="project-hitoiki">
+        <article class="project-card" id="project-hitoiki" data-tags="break">
           <div class="project-art art-summary" id="project-katachi" aria-hidden="true">
             <span class="project-kicker">BREAK REMINDERS</span>
             <svg width="112" height="74" viewBox="0 0 112 74" fill="none"><rect x="9" y="6" width="94" height="55" rx="5" stroke="currentColor" stroke-width="2"/><path d="M56 61v7M37 68h38" stroke="currentColor" stroke-width="2"/><circle cx="56" cy="33" r="19" stroke="currentColor" stroke-width="2" opacity=".45"/><path d="M56 14a19 19 0 0 1 19 19" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M50 26v14M62 26v14" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
@@ -182,6 +205,7 @@
           <div class="project-body">
             <div class="project-meta"><span>休憩支援 / macOS・Windows</span><span class="status">配布版あり</span></div>
             <h3>休憩のきっかけを、画面の中につくる。</h3><p class="project-name">Hitoiki（一息）</p>
+            <ul class="tag-list" aria-label="分野"><li>休憩・作業支援</li></ul>
             <dl class="case-details">
               <div><dt>課題 / Problem</dt><dd>作業に没頭していると、休憩のタイミングを逃してしまう。時間に気づき、いったん手を止めるきっかけが必要です。</dd></div>
               <div><dt>考え方 / Approach</dt><dd>休憩を思い出す負担を、時間と画面の仕組みに任せる。決めた間隔や時刻に全モニターへ休憩画面を出し、作業に区切りをつくります。</dd></div>
@@ -194,24 +218,47 @@
           </div>
         </article>
       </div>
+      <p class="filter-empty" data-filter-empty="projects" hidden>この分野の事例はありません。</p>
       <p class="case-context">自身の制作物を通じた設計事例です。受託・導入実績や効果測定を示すものではありません。機能と制限は公開資料に基づいて紹介しています。</p>
     </section>
 
     <section class="engineering section-wrap" id="engineering" aria-labelledby="engineering-title">
       <div class="section-intro compact-intro"><div><p class="eyebrow">MORE WORK &amp; WRITING</p><h2 id="engineering-title">設計を支える、発信と制作。</h2></div><p class="section-description">アクセシビリティの発信や、<br>現場・日々の暮らしから考えた道具。</p></div>
       <div class="engineering-list">
-        <article id="project-a11ylab"><span class="engineering-number">01</span><div><h3><a href="https://silentmalachite.github.io/A11yLab/">A11yLab <span aria-hidden="true">↗</span></a></h3><p>見え方、聞こえ方、操作の障壁を具体的な場面から考えるアクセシビリティ探求室。字幕、コントラスト、キーボード操作について、AIとの共創で発信しています。</p><div class="project-sub-links"><a href="https://silentmalachite.github.io/A11yLab/physical/2026-01-02-keyboard-nav/">キーボード操作の記事</a><a href="https://github.com/SilentMalachite/A11yLab">ソースを見る</a></div></div><span class="tech-label">公開サイト</span></article>
-        <article id="project-omniarchive"><span class="engineering-number">02</span><div><h3><a href="https://github.com/SilentMalachite/OmniArchive">OmniArchive <span aria-hidden="true">↗</span></a></h3><p>PDFや画像の切り出し、資料情報の入力、確認・承認、公開をつなぐWebアプリ。認知アクセシビリティを方針に、資料整理の工程を考えています。</p></div><span class="tech-label">Elixir / Phoenix</span></article>
-        <article><span class="engineering-number">03</span><div><h3><a href="https://github.com/SilentMalachite/Ayumi">Ayumi <span aria-hidden="true">↗</span></a></h3><p>個別支援計画、日々の支援記録、出欠や期限の管理をまとめる、就労継続支援B型事業所向けの業務支援アプリ。事業所のPC1台とLANで扱い、記録の変更を履歴として残す設計です。請求機能は対象外です。</p></div><span class="tech-label"><span class="status">開発中</span><br>Elixir / Phoenix / SQLite</span></article>
-        <article id="project-tsumugi"><span class="engineering-number">04</span><div><h3><a href="https://github.com/SilentMalachite/Tsumugi">Tsumugi <span aria-hidden="true">↗</span></a></h3><p>記録と工賃計算を支える、就労継続支援B型事業所向けのオフラインアプリ。個人情報を端末内で扱い、訂正履歴を残す設計です。国保連向けの請求計算・帳票・CSV生成は未完成です。</p></div><span class="tech-label"><span class="status">開発中</span><br>C# / Avalonia / SQLite</span></article>
-        <article id="project-systemsoundscaptions"><span class="engineering-number" id="project-summarytalk">05</span><div><h3><a href="https://github.com/SilentMalachite/SystemSoundsCaptions">System<wbr>Sounds<wbr>Captions <span aria-hidden="true">↗</span></a></h3><p>マイク、PCで再生中の音、音声・動画ファイルを、リアルタイムで日本語字幕にするmacOS・Windows向けアプリ。音声認識はPC内で行い、認識中と確定後の文字を色で分けて前面の字幕ウィンドウに表示します。システム音声の字幕化には、ループバック用デバイスの準備が必要です。</p><div class="project-sub-links"><a href="https://github.com/SilentMalachite/SystemSoundsCaptions/releases">SystemSoundsCaptions の配布版を見る</a></div></div><span class="tech-label"><span class="status">配布版あり</span><br>Java / Swing / Vosk</span></article>
+        <article id="project-a11ylab" data-tags="cognitive"><span class="engineering-number">01</span><div><h3><a href="https://silentmalachite.github.io/A11yLab/">A11yLab <span aria-hidden="true">↗</span></a></h3><p>見え方、聞こえ方、操作の障壁を具体的な場面から考えるアクセシビリティ探求室。字幕、コントラスト、キーボード操作について、AIとの共創で発信しています。</p><ul class="tag-list" aria-label="分野"><li>認知負荷</li></ul><div class="project-sub-links"><a href="https://silentmalachite.github.io/A11yLab/physical/2026-01-02-keyboard-nav/">キーボード操作の記事</a><a href="https://github.com/SilentMalachite/A11yLab">ソースを見る</a></div></div><span class="tech-label">公開サイト</span></article>
+        <article id="project-omniarchive" data-tags="heritage cognitive workflow"><span class="engineering-number">02</span><div><h3><a href="https://github.com/SilentMalachite/OmniArchive">OmniArchive <span aria-hidden="true">↗</span></a></h3><p>PDFや画像の切り出し、資料情報の入力、確認・承認、公開をつなぐWebアプリ。認知アクセシビリティを方針に、資料整理の工程を考えています。</p><ul class="tag-list" aria-label="分野"><li>文化財</li><li>認知負荷</li><li>業務整理</li></ul></div><span class="tech-label">Elixir / Phoenix</span></article>
+        <article id="project-systemsoundscaptions"><span class="engineering-number" id="project-summarytalk">03</span><div><h3><a href="https://github.com/SilentMalachite/SystemSoundsCaptions">System<wbr>Sounds<wbr>Captions <span aria-hidden="true">↗</span></a></h3><p>マイク、PCで再生中の音、音声・動画ファイルを、リアルタイムで日本語字幕にするmacOS・Windows向けアプリ。音声認識はPC内で行い、認識中と確定後の文字を色で分けて前面の字幕ウィンドウに表示します。システム音声の字幕化には、ループバック用デバイスの準備が必要です。</p><div class="project-sub-links"><a href="https://github.com/SilentMalachite/SystemSoundsCaptions/releases">SystemSoundsCaptions の配布版を見る</a></div></div><span class="tech-label"><span class="status">配布版あり</span><br>Java / Swing / Vosk</span></article>
       </div>
-      <div class="related-work">
-        <p class="eyebrow">ALSO EXPLORING</p>
-        <div><h3><a href="https://github.com/SilentMalachite/BudgetTracker">BudgetTracker <span aria-hidden="true">↗</span></a><span class="status">開発中</span></h3><p>Tauri・Svelte・Rustによる、端末内でデータを扱う家計簿アプリ。</p></div>
-        <div><h3><a href="https://github.com/SilentMalachite/MonoOto">MonoOto <span aria-hidden="true">↗</span></a><span class="status">実験段階</span></h3><p>片耳で聴くとき、ステレオ由来の違いを音色の手掛かりで伝えられるか探る音響実験。ファイル再生に対応した試作段階で、実機での継続再生や聴取評価は未検証です。</p></div>
-      </div>
+      <p class="filter-empty" data-filter-empty="engineering" hidden>この分野の項目はありません。</p>
       <a class="text-link all-repos" href="https://github.com/SilentMalachite?tab=repositories">すべてのリポジトリを見る <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="exploring section-wrap" id="exploring" aria-labelledby="exploring-title">
+      <div class="section-intro compact-intro">
+        <div><p class="eyebrow">IN PROGRESS</p><h2 id="exploring-title">現在の探求</h2></div>
+        <p class="section-description">開発中、または実験段階のものです。<br>完成や導入実績を示すものではありません。</p>
+      </div>
+      <div class="exploring-list">
+        <article data-tags="welfare workflow">
+          <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/Ayumi">Ayumi <span aria-hidden="true">↗</span></a></h3><span class="status">開発中</span></div>
+          <p>就労継続支援B型向けに、個別支援計画、支援記録、出欠や期限をまとめる業務支援アプリです。請求機能は対象外です。</p>
+          <ul class="tag-list" aria-label="分野"><li>福祉</li><li>業務整理</li></ul>
+        </article>
+        <article id="project-tsumugi" data-tags="welfare workflow">
+          <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/Tsumugi">Tsumugi <span aria-hidden="true">↗</span></a></h3><span class="status">開発中</span></div>
+          <p>就労継続支援B型向けに、記録と工賃計算を端末内で扱うアプリです。国保連向けの請求計算・帳票・CSV生成は未完成です。</p>
+          <ul class="tag-list" aria-label="分野"><li>福祉</li><li>業務整理</li></ul>
+        </article>
+        <article>
+          <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/BudgetTracker">BudgetTracker <span aria-hidden="true">↗</span></a></h3><span class="status">開発中</span></div>
+          <p>端末内でデータを扱う家計簿アプリです。</p>
+        </article>
+        <article>
+          <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/MonoOto">MonoOto <span aria-hidden="true">↗</span></a></h3><span class="status">実験段階</span></div>
+          <p>片耳で聴くとき、ステレオ由来の違いを音色の手掛かりで伝えられるかを探る音響実験です。実機での継続再生や聴取評価は未検証です。</p>
+        </article>
+      </div>
+      <p class="filter-empty" data-filter-empty="exploring" hidden>この分野の項目はありません。</p>
     </section>
 
     <section class="approach section-wrap" id="approach" aria-labelledby="approach-title">
@@ -259,5 +306,6 @@
     <div class="footer-top"><a class="brand" href="#top"><img src="./assets/favicon.svg" width="40" height="40" alt=""><span>SilentMalachite<span class="brand-caption">PEOPLE, WORK &amp; TECHNOLOGY</span></span></a><div><a href="https://silentmalachite.github.io/A11yLab/">A11yLab <span aria-hidden="true">↗</span></a><a href="https://github.com/SilentMalachite">GitHub <span aria-hidden="true">↗</span></a><a class="language-link" href="./en/index.html" lang="en" hreflang="en">English</a><a href="#top">ページの先頭へ <span aria-hidden="true">↑</span></a></div></div>
     <div class="footer-bottom"><small>© 2026 SilentMalachite</small><small>サイト更新日：<time datetime="2026-10-17">2026.10.17</time></small><span>Made with care, for people.</span></div>
   </footer>
+  <script src="./assets/filter.js" defer></script>
 </body>
 </html>
