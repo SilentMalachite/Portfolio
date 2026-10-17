@@ -1379,6 +1379,15 @@ h2 {
   margin-top:28px;
   font-size:var(--text-md);
 }
+/* 事例を読み終えた位置から、相談例と連絡先へ進めるようにする。 */
+.case-contact {
+  margin-top:var(--space-md);
+  font-size:var(--text-md);
+}
+:lang(ja) .case-contact {
+  word-break:keep-all;
+  word-break:auto-phrase;
+}
 .case-details {
   margin:0 0 28px;
   font-size:var(--text-md);
