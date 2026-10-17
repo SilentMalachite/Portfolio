@@ -6,7 +6,7 @@
   var status = root.querySelector("[data-filter-status]");
   var lang = document.documentElement.lang || "ja";
   var regions = [
-    { id: "projects", items: document.querySelectorAll("#projects .soujo-feature, #projects .project-card") },
+    { id: "projects", items: document.querySelectorAll("#projects .project-card") },
     { id: "engineering", items: document.querySelectorAll("#engineering .engineering-list article") },
     { id: "exploring", items: document.querySelectorAll("#exploring .exploring-list article") }
   ];
@@ -15,11 +15,6 @@
     var raw = item.getAttribute("data-tags");
     if (!raw) return [];
     return raw.trim().split(/\s+/).filter(Boolean);
-  }
-
-  function matches(item, filter) {
-    if (filter === "all") return true;
-    return tagsOf(item).indexOf(filter) !== -1;
   }
 
   function labelFor(filter) {
@@ -32,45 +27,47 @@
     return filter;
   }
 
+  // 該当した理由が見えるよう、選んだ分野と同じ名前の表示タグを塗りつぶす。
+  function markTags(item, label, highlighted) {
+    Array.prototype.forEach.call(item.querySelectorAll(".tag-list li"), function (tag) {
+      tag.classList.toggle("is-current-tag", highlighted && tag.textContent.trim() === label);
+    });
+  }
+
+  // 該当しない項目も隠さず、該当する項目だけを強調する。
   function apply(filter) {
     var total = 0;
+    var active = filter !== "all";
+    var label = labelFor(filter);
     Array.prototype.forEach.call(buttons, function (button) {
       button.setAttribute("aria-pressed", button.getAttribute("data-filter") === filter ? "true" : "false");
     });
     regions.forEach(function (region) {
       var count = 0;
       Array.prototype.forEach.call(region.items, function (item) {
-        var show = matches(item, filter);
-        item.classList.toggle("is-filtered-out", !show);
-        if (show) count += 1;
+        var highlighted = active && tagsOf(item).indexOf(filter) !== -1;
+        item.classList.toggle("is-highlighted", highlighted);
+        markTags(item, label, highlighted);
+        if (highlighted) count += 1;
       });
       total += count;
       var empty = document.querySelector('[data-filter-empty="' + region.id + '"]');
-      if (empty) empty.hidden = filter === "all" || count > 0;
+      if (empty) empty.hidden = !active || count > 0;
     });
     if (!status) return;
-    if (filter === "all") {
+    if (!active) {
       status.textContent = "";
       return;
     }
-    var label = labelFor(filter);
     status.textContent = lang === "en"
-      ? label + ": " + total + (total === 1 ? " item" : " items")
-      : label + "：" + total + "件";
+      ? "Highlighting " + total + (total === 1 ? " item" : " items") + " tagged " + label + "."
+      : label + "に該当する" + total + "件を強調しています。";
   }
 
   Array.prototype.forEach.call(buttons, function (button) {
     button.addEventListener("click", function () {
       apply(button.getAttribute("data-filter"));
     });
-  });
-
-  document.addEventListener("click", function (event) {
-    var link = event.target.closest && event.target.closest("a[href^='#']");
-    if (!link) return;
-    var id = decodeURIComponent(link.getAttribute("href").slice(1));
-    var target = document.getElementById(id);
-    if (target && target.closest(".is-filtered-out")) apply("all");
   });
 
   apply("all");

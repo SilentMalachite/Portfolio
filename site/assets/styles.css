@@ -627,10 +627,6 @@ h2 {
   margin-bottom:16px;
 }
 
-.is-filtered-out {
-  display:none;
-}
-
 .project-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -1090,6 +1086,54 @@ h2 {
 .exploring-list p {
   color:var(--muted);
   line-height:var(--leading-body);
+}
+
+/* 分野を選ぶと、該当する項目を枠・背景・「該当」の印で示す。該当しない項目も隠さない。
+   各項目の display や背景より後に置き、複合セレクタで上書きする。 */
+.project-card.is-highlighted,
+.engineering-list article.is-highlighted,
+.exploring-list article.is-highlighted {
+  position:relative;
+  background:var(--accent-soft);
+  outline:3px solid var(--accent-strong);
+}
+
+.engineering-list article.is-highlighted {
+  outline-offset:12px;
+  box-shadow:0 0 0 12px var(--accent-soft);
+  border-bottom-color:transparent;
+}
+
+.is-highlighted::before {
+  content:"該当";
+  position:absolute;
+  top:0;
+  right:16px;
+  z-index:2;
+  transform:translateY(-50%);
+  padding:2px 10px;
+  background:var(--accent-strong);
+  color:var(--panel-text);
+  font-size:var(--text-xs);
+  font-weight:600;
+  line-height:1.6;
+  letter-spacing:0.04em;
+}
+
+:lang(en) .is-highlighted::before {
+  content:"Match";
+}
+
+.engineering-list article.is-highlighted::before {
+  top:-13px;
+  right:0;
+}
+
+.tag-list li.is-current-tag {
+  background:var(--accent-strong);
+  border-color:var(--accent-strong);
+  color:var(--panel-text);
+  font-weight:600;
 }
 
 .approach {
@@ -1901,14 +1945,17 @@ h2 {
   .exploring-list article {
     break-inside:avoid;
   }
-  .is-filtered-out,
-  .engineering-list article.is-filtered-out,
-  .exploring-list article.is-filtered-out,
-  .soujo-feature.is-filtered-out {
-    display:block!important;
+  .is-highlighted {
+    outline:0!important;
+    box-shadow:none!important;
   }
-  .project-card.is-filtered-out {
-    display:flex!important;
+  .is-highlighted::before {
+    content:none!important;
+  }
+  .tag-list li.is-current-tag {
+    background:none;
+    color:#111;
+    font-weight:400;
   }
   .project-filter,
   .filter-empty {

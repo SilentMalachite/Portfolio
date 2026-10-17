@@ -119,7 +119,7 @@ for relative, locale, image_name, switch in (("index.html", "ja_JP", "ogp.png", 
     if home.sections != ["premises", "strengths", "services", "projects", "engineering", "exploring", "approach", "about", "contact"]:
         errors.append(f"{relative}: incorrect V2 section order")
     expected_script = "./assets/filter.js" if relative == "index.html" else "../assets/filter.js"
-    if home.scripts != [expected_script]:
+    if [urlsplit(src).path for src in home.scripts] != [expected_script]:
         errors.append(f"{relative}: requires only the local filter script")
     if home.case_ids != ["project-soujo", "project-alchemiiif", "project-utsushi", "project-hitoiki"]:
         errors.append(f"{relative}: incorrect case-study priority")
