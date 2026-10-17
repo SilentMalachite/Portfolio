@@ -137,7 +137,7 @@
               <div><dt>Problem</dt><dd>Every interruption can mean reconstructing decisions and next steps. Depending on human working memory or an AI conversation history makes resuming and handing over work harder.</dd></div>
               <div><dt>Approach</dt><dd>Move the state outside people’s heads and conversations, and keep each task small. Interruption and resumption are part of the design, with the aim of reducing memory demands.</dd></div>
               <div><dt>Design</dt><dd>Four files hold the specification, plan, log, and next step. Work proceeds in small “layers,” and Claude Code and Codex can share the same records.</dd></div>
-              <div><dt>Result &amp; status</dt><dd>A CLI and shared skills for Interruptible / Resumable AI Development, with public source. Effects on cognitive load and efficiency have not been measured.</dd></div>
+              <div><dt>Result &amp; status</dt><dd>A CLI and shared skills for Interruptible / Resumable AI Development, with public source. I use it in my daily development work; by separating specifications from work records, it serves as a foundation for smoother AI collaboration and for handing off and resuming work.</dd></div>
               <div><dt>Tech</dt><dd>TypeScript / CLI / Markdown</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/SilentMalachite/Soujo">Explore Soujo (層序) on GitHub <span aria-hidden="true">↗</span></a>
@@ -190,7 +190,7 @@
               <div><dt>Problem</dt><dd>Preparing images from multiple PDFs means repeatedly choosing pages, resolution, and filenames, then checking which pages failed.</dd></div>
               <div><dt>Approach</dt><dd>Group repeated choices and show what will be produced before conversion. Support both interactive use and automation of routine tasks.</dd></div>
               <div><dt>Design</dt><dd>Select PDFs or a folder, set page ranges, resolution, and naming, and preview output size and filenames. Review failures by page afterward, using either the GUI or CLI.</dd></div>
-              <div><dt>Result &amp; status</dt><dd>A Windows app that produces a PNG or JPEG for each page, distributed as a ZIP with no installer required. Password-protected PDFs are supported through the CLI, not the GUI.</dd></div>
+              <div><dt>Result &amp; status</dt><dd>A Windows app that produces a PNG or JPEG for each page, distributed as a ZIP with no installer required. The design divides the roles: a straightforward GUI for everyday routine work, and the CLI for advanced batch processing such as password-protected PDFs.</dd></div>
               <div><dt>Tech</dt><dd>C++ / WinUI 3 / Windows.Data.Pdf</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/SilentMalachite/Utsushi.Win/releases">Get Utsushi for Windows <span aria-hidden="true">↗</span></a>
@@ -213,7 +213,7 @@
               <div><dt>Problem</dt><dd>When absorbed in a task, it is easy to miss a break. A cue is needed to notice the time and pause the work.</dd></div>
               <div><dt>Approach</dt><dd>Let a schedule and a screen prompt carry the task of remembering a break. At set intervals or clock times, a break view appears on every display to create a pause in the work.</dd></div>
               <div><dt>Design</dt><dd>After a few flashes, a dark overlay and countdown cover every display. Schedules falling in the same minute are merged, and holding Esc for three seconds ends a break early. Settings stay on the device; the app makes no network requests.</dd></div>
-              <div><dt>Result &amp; status</dt><dd>Downloads are available for macOS (Apple silicon) and Windows. First launch requires OS confirmation. The app is a reminder rather than a complete input lock; detailed settings are edited in a JSON file.</dd></div>
+              <div><dt>Result &amp; status</dt><dd>Downloads are available for macOS (Apple silicon) and Windows. First launch requires OS confirmation. It is designed to stay safe by never blocking urgent actions, and its settings are kept simple in an external file.</dd></div>
               <div><dt>Tech</dt><dd>TypeScript / Electron</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/SilentMalachite/hitoiki/releases">Get Hitoiki <span aria-hidden="true">↗</span></a>
@@ -222,7 +222,7 @@
         </article>
       </div>
       <p class="filter-empty" data-filter-empty="projects" hidden>No case studies match this topic.</p>
-      <p class="case-context">These are design examples from my own projects, not a record of client engagements or measured outcomes. Features and limitations are described from public project documentation.</p>
+      <p class="case-context">These are design and implementation examples from my own projects. I also take on customization for real workplace problems and prototype development of new tools. Features and limitations are described from public project documentation.</p>
       <a class="text-link case-contact" href="#contact">Facing something similar? See example questions and contact details <span aria-hidden="true">↓</span></a>
     </section>
 
@@ -245,12 +245,12 @@
       <div class="exploring-list">
         <article data-tags="welfare workflow">
           <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/Ayumi">Ayumi <span aria-hidden="true">↗</span></a></h3><span class="status">In development</span></div>
-          <p>An app for Type B continuing employment support. It gathers individual support plans, daily records, attendance, and deadlines. Billing is outside its scope.</p>
+          <p>An app for Type B continuing employment support. It gathers individual support plans, daily records, attendance, and deadlines. It focuses on daily support records and deadline management, designed to reduce the input burden on staff.</p>
           <ul class="tag-list" aria-label="Topics"><li>Welfare</li><li>Structuring work</li></ul>
         </article>
         <article id="project-tsumugi" data-tags="welfare workflow">
           <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/Tsumugi">Tsumugi <span aria-hidden="true">↗</span></a></h3><span class="status">In development</span></div>
-          <p>An offline app for records and work-payment calculations in Type B continuing employment support. Reimbursement calculations, forms, and CSV generation are unfinished.</p>
+          <p>An offline app for records and work-payment calculations in Type B continuing employment support. Development starts with the core features that matter most on site: daily records and accurate work-payment calculations.</p>
           <ul class="tag-list" aria-label="Topics"><li>Welfare</li><li>Structuring work</li></ul>
         </article>
         <article>

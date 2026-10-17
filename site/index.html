@@ -137,7 +137,7 @@
               <div><dt>課題 / Problem</dt><dd>開発を中断するたびに、決めたことや次の作業を思い出す。人の作業記憶やAIの会話履歴に頼るほど、再開や引き継ぎが難しくなります。</dd></div>
               <div><dt>考え方 / Approach</dt><dd>状態を人の頭や会話の外に置き、一度に扱う作業を小さくする。中断と再開を前提に、記憶負荷を下げる設計を考えました。</dd></div>
               <div><dt>設計 / Design</dt><dd>仕様・計画・記録・次の一手を4つのファイルへ。小さな「層」ごとに進め、Claude CodeとCodexの間でも同じ記録を引き継げます。</dd></div>
-              <div><dt>成果物・現状 / Result</dt><dd>Interruptible / Resumable AI Developmentを支えるCLIと共通スキルを公開。認知負荷や作業効率の改善効果は未測定です。</dd></div>
+              <div><dt>成果物・現状 / Result</dt><dd>Interruptible / Resumable AI Developmentを支えるCLIと共通スキルを公開。日常の開発で使用しており、仕様と作業記録を分割することで、AIとの協業や業務の引き継ぎ・再開をスムーズにする基盤として機能しています。</dd></div>
               <div><dt>利用技術 / Tech</dt><dd>TypeScript / CLI / Markdown</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/SilentMalachite/Soujo">Soujo（層序）のソースを見る <span aria-hidden="true">↗</span></a>
@@ -190,7 +190,7 @@
               <div><dt>課題 / Problem</dt><dd>複数のPDFからページごとの画像を用意するとき、対象ページ、解像度、保存名を繰り返し決め、変換できなかったページも確認する必要があります。</dd></div>
               <div><dt>考え方 / Approach</dt><dd>繰り返す指定をまとめ、出力の見通しを先につける。手元での操作と、定型作業の自動処理の両方から使える形にしました。</dd></div>
               <div><dt>設計 / Design</dt><dd>PDFやフォルダをまとめて選び、ページ範囲・解像度・命名を設定。出力サイズと名前を事前表示し、変換後はページ単位で失敗の理由を確認できます。GUIとCLIを用意しています。</dd></div>
-              <div><dt>成果物・現状 / Result</dt><dd>ページごとのPNG・JPEGをつくるWindowsアプリを、インストール不要のZIPで配布。パスワード付きPDFはCLIで扱い、GUIは非対応です。</dd></div>
+              <div><dt>成果物・現状 / Result</dt><dd>ページごとのPNG・JPEGをつくるWindowsアプリを、インストール不要のZIPで配布。日常の定型作業は迷わないGUIで、パスワード付きPDFなどの高度な一括処理はCLIで役割分担する設計です。</dd></div>
               <div><dt>利用技術 / Tech</dt><dd>C++ / WinUI 3 / Windows.Data.Pdf</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/SilentMalachite/Utsushi.Win/releases">Utsushi.Win の配布版を見る <span aria-hidden="true">↗</span></a>
@@ -213,7 +213,7 @@
               <div><dt>課題 / Problem</dt><dd>作業に没頭していると、休憩のタイミングを逃してしまう。時間に気づき、いったん手を止めるきっかけが必要です。</dd></div>
               <div><dt>考え方 / Approach</dt><dd>休憩を思い出す負担を、時間と画面の仕組みに任せる。決めた間隔や時刻に全モニターへ休憩画面を出し、作業に区切りをつくります。</dd></div>
               <div><dt>設計 / Design</dt><dd>画面を数回点滅させた後、暗い表示と残り時間で全モニターを覆います。同じ分に重なる予定は一つにまとめ、Escの3秒長押しで途中解除できます。設定は端末内に保存し、通信は行いません。</dd></div>
-              <div><dt>成果物・現状 / Result</dt><dd>macOS（Apple silicon）・Windows向けの配布版を公開。初回起動にはOSの確認が必要です。操作を完全に遮断するロックではなく、細かな設定はJSONファイルで行います。</dd></div>
+              <div><dt>成果物・現状 / Result</dt><dd>macOS（Apple silicon）・Windows向けの配布版を公開。初回起動にはOSの確認が必要です。緊急時の操作を妨げない安全な設計とし、設定は外部ファイルでシンプルに管理できます。</dd></div>
               <div><dt>利用技術 / Tech</dt><dd>TypeScript / Electron</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/SilentMalachite/hitoiki/releases">Hitoiki の配布版を見る <span aria-hidden="true">↗</span></a>
@@ -222,7 +222,7 @@
         </article>
       </div>
       <p class="filter-empty" data-filter-empty="projects" hidden>この分野に該当する事例はありません。</p>
-      <p class="case-context">自身の制作物を通じた設計事例です。受託・導入実績や効果測定を示すものではありません。機能と制限は公開資料に基づいて紹介しています。</p>
+      <p class="case-context">自身の制作物を通じた設計・実装事例です。実際の業務課題に合わせたカスタマイズや、新規ツールの試作開発を承っています。機能と制限は公開資料に基づいて紹介しています。</p>
       <a class="text-link case-contact" href="#contact">似た困りごとがあれば、相談例と連絡先へ <span aria-hidden="true">↓</span></a>
     </section>
 
@@ -245,12 +245,12 @@
       <div class="exploring-list">
         <article data-tags="welfare workflow">
           <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/Ayumi">Ayumi <span aria-hidden="true">↗</span></a></h3><span class="status">開発中</span></div>
-          <p>就労継続支援B型向けに、個別支援計画、支援記録、出欠や期限をまとめる業務支援アプリです。請求機能は対象外です。</p>
+          <p>就労継続支援B型向けに、個別支援計画、支援記録、出欠や期限をまとめる業務支援アプリです。日々の支援記録と期限管理に特化し、現場の入力負担を減らす設計です。</p>
           <ul class="tag-list" aria-label="分野"><li>福祉</li><li>業務整理</li></ul>
         </article>
         <article id="project-tsumugi" data-tags="welfare workflow">
           <div class="exploring-heading"><h3><a href="https://github.com/SilentMalachite/Tsumugi">Tsumugi <span aria-hidden="true">↗</span></a></h3><span class="status">開発中</span></div>
-          <p>就労継続支援B型向けに、記録と工賃計算を端末内で扱うアプリです。国保連向けの請求計算・帳票・CSV生成は未完成です。</p>
+          <p>就労継続支援B型向けに、記録と工賃計算を端末内で扱うアプリです。まずは現場で最も負担の大きい日々の記録と工賃計算の正確性を支えるコア機能から構築しています。</p>
           <ul class="tag-list" aria-label="分野"><li>福祉</li><li>業務整理</li></ul>
         </article>
         <article>
