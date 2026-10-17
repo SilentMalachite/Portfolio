@@ -353,6 +353,8 @@ h1 span {
   overflow:hidden;
 }
 
+/* 幅800px以下は、表示範囲だけを切り出した軽い画像に替わる。どちらも枠いっぱいに置く。 */
+.hero-art picture,
 .hero-art img {
   position:absolute;
   inset:0;

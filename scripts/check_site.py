@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1] / "site"
 BASE = "https://silentmalachite.github.io/Portfolio/"
-REQUIRED = ("index.html", "en/index.html", "404.html", "assets/styles.css", "assets/favicon.svg", "assets/paper-2.jpg", "assets/ogp.png", "assets/ogp-en.png")
+REQUIRED = ("index.html", "en/index.html", "404.html", "assets/styles.css", "assets/favicon.svg", "assets/paper-2.jpg", "assets/paper-2-mobile.jpg", "assets/ogp.png", "assets/ogp-en.png")
 errors = []
 
 
@@ -58,6 +58,9 @@ class Page(HTMLParser):
         for key in ("href", "src"):
             if key in a:
                 self.refs.append(("metadata" if tag == "link" and a.get("rel") in {"canonical", "alternate"} else tag, a[key]))
+        if "srcset" in a:
+            for candidate in a["srcset"].split(","):
+                self.refs.append((tag, candidate.strip().split()[0] if candidate.strip() else ""))
 
     def handle_endtag(self, tag):
         if tag == "section":
