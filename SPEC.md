@@ -62,15 +62,16 @@ A11yLabの公開トップ `https://silentmalachite.github.io/A11yLab/` への直
 | 順序 | セクション / ID | 内容と操作 |
 | --- | --- | --- |
 | 1 | ヘッダー / `top` | 表示名、「できること」「制作事例」「私について」「相談する」、言語切替 |
-| 2 | Hero | 中心メッセージ、「制作事例を見る」→`projects`、「相談できることを見る」→`services` |
-| 3 | What I Do / `strengths` | 現場の観察、課題の分解、必要な技術の選択 |
-| 4 | Services / `services` | 依頼できる3項目、相談例・連絡先への導線 |
-| 5 | Case Studies / `projects` | Soujo → AlchemIIIF → Utsushi.Win → Hitoiki |
-| 5補足 | More Work & Writing / `engineering` | A11yLab・OmniArchive・Ayumi・Tsumugi・SystemSoundsCaptions、関連2件、全リポジトリ |
-| 6 | My Approach / `approach` | 人から考える、複雑さを分解する、特性を設計に変える、小さく作って検証する |
-| 7 | About / `about` | 異なる現場から現在の設計思想への接続、既存の略歴・資格、協業案内 |
-| 8 | Contact / `contact` | 6つの相談例と本人指定のSNS・メール。旧`recruiting`アンカーも維持 |
-| 9 | フッター | GitHub・A11yLab・言語切替・先頭へ、サイト更新日 |
+| 2 | Hero | 中心メッセージ、「制作事例を見る」→`projects`、「相談できることを見る」→`services`。次の節へのスクロールは`premises` |
+| 3 | 設計するときの前提 / `premises` | 中断、一度に扱う量、感覚や認知の違い、現場で続けられること、小さく試して確認する |
+| 4 | What I Do / `strengths` | 現場の観察、課題の分解、必要な技術の選択 |
+| 5 | Services / `services` | 依頼できる3項目、相談例・連絡先への導線 |
+| 6 | Case Studies / `projects` | Soujo → AlchemIIIF → Utsushi.Win → Hitoiki |
+| 6補足 | More Work & Writing / `engineering` | A11yLab・OmniArchive・Ayumi・Tsumugi・SystemSoundsCaptions、関連2件、全リポジトリ |
+| 7 | My Approach / `approach` | 人から考える、複雑さを分解する、特性を設計に変える、小さく作って検証する |
+| 8 | About / `about` | 異なる現場から現在の設計思想への接続、既存の略歴・資格、協業案内 |
+| 9 | Contact / `contact` | 6つの相談例と本人指定のSNS・メール。旧`recruiting`アンカーも維持 |
+| 10 | フッター | GitHub・A11yLab・言語切替・先頭へ、サイト更新日 |
 
 旧アンカー `strengths`・`engineering`・`recruiting` と既存作品のIDを維持する。差し替えた `project-katachi` は、同じ4番目のカード位置へ案内する互換アンカーとして残し、Hitoikiの正規IDは `project-hitoiki` とする。新しいナビゲーションでは採用用表現を使わない。
 

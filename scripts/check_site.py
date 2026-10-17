@@ -116,7 +116,7 @@ for relative, locale, image_name, switch in (("index.html", "ja_JP", "ogp.png", 
             errors.append(f"Missing section: {anchor}")
 
 
-    if home.sections != ["strengths", "services", "projects", "engineering", "approach", "about", "contact"]:
+    if home.sections != ["premises", "strengths", "services", "projects", "engineering", "approach", "about", "contact"]:
         errors.append(f"{relative}: incorrect V2 section order")
     if home.case_ids != ["project-soujo", "project-alchemiiif", "project-utsushi", "project-hitoiki"]:
         errors.append(f"{relative}: incorrect case-study priority")

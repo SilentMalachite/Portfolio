@@ -354,6 +354,40 @@ h1 span {
   object-position:center 40%;
 }
 
+.premises {
+  background:var(--surface);
+  padding-block:calc(var(--space-3xl) + var(--space-md));
+}
+
+.premise-list {
+  list-style:none;
+  margin:var(--space-xl) 0 0;
+  padding:0;
+  border-top:1px solid var(--line);
+}
+
+.premise-list li {
+  display:grid;
+  grid-template-columns:minmax(0,18rem) minmax(0,42rem);
+  gap:var(--space-sm) var(--space-xl);
+  align-items:baseline;
+  padding-block:var(--space-lg);
+  border-bottom:1px solid var(--line);
+}
+
+.premise-list h3 {
+  font-family:var(--serif);
+  font-size:var(--text-lg);
+  font-weight:500;
+  letter-spacing:0.02em;
+  line-height:var(--leading-heading);
+}
+
+.premise-list p {
+  max-width:42rem;
+  color:var(--muted);
+}
+
 .strengths {
   padding-block:var(--space-3xl);
 }
@@ -1038,7 +1072,7 @@ h2 {
 }
 
 /* 説明本文は画面幅にかかわらず16pxを保つ。 */
-.hero-description,.section-description,.strength-grid p,.project-body>p:not(.project-name),.engineering-list p,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
+.hero-description,.section-description,.premise-list p,.strength-grid p,.project-body>p:not(.project-name),.engineering-list p,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
   font-size:var(--text-md);
   line-height:var(--leading-body);
 }
@@ -1231,8 +1265,12 @@ h2 {
   .section-wrap {
     padding-inline:var(--gutter);
   }
-  .strengths,.projects,.engineering,.approach,.about {
+  .premises,.strengths,.projects,.engineering,.approach,.about {
     padding-block:var(--space-2xl);
+  }
+  .premise-list li {
+    gap:var(--space-sm) var(--space-lg);
+    padding-block:var(--space-md);
   }
   .section-intro {
     gap:25px;
@@ -1413,8 +1451,16 @@ h2 {
     font-size:var(--text-xs);
     margin-top:12px;
   }
-  .strengths,.projects,.engineering,.approach,.about {
+  .premises,.strengths,.projects,.engineering,.approach,.about {
     padding-block:var(--space-xl);
+  }
+  .premise-list {
+    margin-top:var(--space-lg);
+  }
+  .premise-list li {
+    grid-template-columns:1fr;
+    gap:var(--space-xs);
+    padding-block:var(--space-md);
   }
   .project-grid {
     grid-template-columns:1fr;
@@ -1549,7 +1595,7 @@ h2 {
 
 /* メディアクエリ後も本文サイズの下限を維持する。 */
 @media screen {
-  .hero-description,.section-description,.strength-grid p,.project-body>p:not(.project-name),.engineering-list p,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
+  .hero-description,.section-description,.premise-list p,.strength-grid p,.project-body>p:not(.project-name),.engineering-list p,.related-work p,.approach-list p,.approach-heading>p:not(.eyebrow),.recruiting-panel>p:not(.eyebrow),.recruiting-contact p {
     font-size:var(--text-md);
     line-height:var(--leading-body);
   }
@@ -1568,7 +1614,7 @@ h2 {
   .about-story,.contact-examples { display:block; }
   .about-background { border:0; padding:18px 0 0; }
   .case-details { font-size:10pt; }
-  .case-details>div,.strength-grid article,.approach-list article { break-inside:avoid; }
+  .case-details>div,.premise-list li,.strength-grid article,.approach-list article { break-inside:avoid; }
   .contact-examples { color:#111; }
   @page {
     margin:16mm;
@@ -1631,7 +1677,7 @@ h2 {
   .project-body h3 {
     font-size:16pt;
   }
-  .projects,.approach {
+  .premises,.projects,.approach {
     background:#fff;
   }
   .approach {
