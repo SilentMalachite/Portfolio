@@ -17,6 +17,7 @@ class Page(HTMLParser):
         self.ids, self.refs, self.metadata, self.links, self.scripts = [], [], {}, [], []
         self.sections, self.case_ids = [], []
         self.section = None
+        self.in_examples = False
         self.counts = {"services": 0, "approach": 0, "contact": 0}
         self.h1 = 0
         self.lang = None
@@ -33,7 +34,9 @@ class Page(HTMLParser):
             self.case_ids.append(a.get("id"))
         if tag == "article" and self.section in {"services", "approach"}:
             self.counts[self.section] += 1
-        if tag == "li" and self.section == "contact":
+        if tag == "ul" and "contact-examples" in a.get("class", "").split():
+            self.in_examples = True
+        if tag == "li" and self.section == "contact" and self.in_examples:
             self.counts["contact"] += 1
         if "id" in a:
             self.ids.append(a["id"])
@@ -65,6 +68,8 @@ class Page(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "section":
             self.section = None
+        if tag == "ul":
+            self.in_examples = False
 
 
 for relative in REQUIRED:
@@ -81,6 +86,10 @@ for path, page in pages.items():
         url = urlsplit(ref)
         if not ref or ref == "#":
             errors.append(f"{path.name}: empty link")
+        if url.scheme == "mailto" and tag == "a":
+            if not url.path:
+                errors.append(f"{path.name}: mailto link without address")
+            continue
         if url.scheme or url.netloc:
             if url.scheme != "https":
                 errors.append(f"{path.name}: unexpected URL scheme: {ref}")

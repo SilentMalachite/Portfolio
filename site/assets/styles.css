@@ -1269,6 +1269,86 @@ h2 {
   text-decoration:underline;
 }
 
+/* メールを主な連絡手段とし、暗い面の上で明るいボタンにする。 */
+.recruiting-contact .contact-mail {
+  background:var(--panel-text);
+  border-color:var(--panel-text);
+  color:var(--accent-strong);
+}
+
+.recruiting-contact .contact-mail:hover {
+  background:#fff;
+  color:var(--accent-hover);
+}
+
+.recruiting-contact .contact-sns {
+  grid-column:2;
+  margin-top:12px;
+}
+
+/* 連絡前に伝える内容を先に示し、書き出しで迷わないようにする。 */
+.contact-guide {
+  margin-top:35px;
+  padding:24px 28px;
+  border:1px solid var(--panel-muted);
+  max-width:760px;
+}
+
+.contact-guide h3,.contact-terms h3 {
+  font-family:var(--sans);
+  font-size:var(--text-md);
+  font-weight:600;
+  color:var(--panel-text);
+}
+
+.contact-guide h3 span {
+  font-weight:400;
+  color:var(--panel-muted);
+}
+
+.contact-guide ol {
+  margin:16px 0 0;
+  padding-left:1.5em;
+  color:var(--panel-text);
+}
+
+.contact-guide li+li {
+  margin-top:12px;
+}
+
+.contact-example {
+  font-size:var(--text-sm);
+  color:var(--panel-muted);
+}
+
+.contact-terms {
+  border-top:1px solid var(--lime);
+  margin-top:35px;
+  padding-top:27px;
+  max-width:760px;
+}
+
+.contact-terms dl {
+  margin:12px 0 0;
+}
+
+.contact-terms dl>div {
+  display:grid;
+  grid-template-columns:170px 1fr;
+  gap:4px 20px;
+  padding-block:8px;
+}
+
+.contact-terms dt {
+  color:var(--panel-text);
+  font-weight:600;
+}
+
+.contact-terms dd {
+  margin:0;
+  color:var(--panel-muted);
+}
+
 .recruiting-decoration {
   position:absolute;
   width:350px;
@@ -1626,8 +1706,12 @@ h2 {
   .recruiting-contact {
     grid-template-columns:1fr;
   }
-  .recruiting-contact a {
+  .recruiting-contact a,
+  .recruiting-contact .contact-sns {
     grid-column:1;
+  }
+  .contact-terms dl>div {
+    grid-template-columns:1fr;
   }
   .footer-top {
     flex-wrap:wrap;
@@ -1815,6 +1899,9 @@ h2 {
   }
   .recruiting-contact a {
     padding-inline:16px;
+  }
+  .contact-guide {
+    padding:20px 18px;
   }
   .recruiting-decoration {
     opacity:.25;
@@ -2022,12 +2109,19 @@ h2 {
   .recruiting-panel h2 {
     font-size:24pt;
   }
-  .recruiting-panel p,.recruiting-panel .eyebrow,.recruiting-panel .recruiting-lead,.contact-label {
+  .recruiting-panel p,.recruiting-panel .eyebrow,.recruiting-panel .recruiting-lead,.contact-label,
+  .contact-guide h3,.contact-guide h3 span,.contact-guide ol,.contact-example,.contact-terms h3,.contact-terms dt,.contact-terms dd {
     color:#111!important;
   }
   .recruiting-contact,
-  .recruiting-contact a {
+  .recruiting-contact a,
+  .contact-guide,
+  .contact-terms {
     border-color:#999;
+  }
+  .recruiting-contact .contact-mail {
+    background:#fff;
+    color:#111;
   }
   .footer-top>div {
     display:none;
