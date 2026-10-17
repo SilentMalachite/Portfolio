@@ -20,7 +20,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory site
 | `site/en/index.html` | 同じ事例・状態注記を含む英語版 |
 | `site/assets/styles.css` | 配色・レイアウト・レスポンシブ・フォーカス・印刷表示 |
 | `site/assets/filter.js` | 分野を選ぶと該当項目を強調する。項目の本文はHTMLにあり、どの項目も隠さない |
-| `site/assets/favicon.svg` | 2つの経路をつなぐ独自のモノグラム。ヘッダー・フッターでも使用 |
+| `site/assets/favicon.svg` | 3枚の層を重ねた独自のアイコン。ヘッダー・フッター・進め方の見出しでも使用 |
 | `site/assets/paper-2.jpg` | ヒーロー右列の静止画。テキストは写真に重ねない |
 | `site/assets/paper-2-mobile.jpg` | 幅800px以下で使うヒーロー図版。`paper-2.jpg` の表示範囲だけを4:3で切り出した軽量版 |
 | `site/assets/ogp.svg` / `ogp.png` | SNS共有用の原稿と1200×630の配信用画像 |
