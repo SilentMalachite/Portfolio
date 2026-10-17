@@ -108,6 +108,12 @@ h1,h2,h3 {
   text-wrap:balance;
 }
 
+/* 日本語の見出しは語句の途中で改行しない。句読点と<wbr>で折り返し、収まらない場合だけ本文と同じく任意の位置で折り返す。 */
+:lang(ja) :is(h1,h2,h3,.hero-lead) {
+  word-break:keep-all;
+  word-break:auto-phrase;
+}
+
 ::selection {
   background:var(--accent-soft);
   color:var(--ink);
@@ -319,6 +325,7 @@ h1 span {
   width:100%;
   display:flex;
   flex-wrap:wrap;
+  align-items:center;
   justify-content:space-between;
   gap:var(--space-sm);
   font-size:var(--text-sm);
@@ -501,7 +508,7 @@ h2 {
   display:inline-flex;
   align-items:center;
   gap:var(--space-2xs);
-  font-size:var(--text-xs);
+  font-size:var(--text-sm);
   font-weight:600;
   min-height:44px;
 }
@@ -638,8 +645,10 @@ h2 {
   scroll-margin-top:32px;
 }
 
+/* 上下のラベル分の余白を確保し、副題が折り返しても図版内で重ならないようにする。 */
 .project-art {
-  height:292px;
+  min-height:292px;
+  padding:52px 24px 44px;
   position:relative;
   overflow:hidden;
   display:flex;
@@ -648,12 +657,15 @@ h2 {
   flex-direction:column;
 }
 
+/* 図版内の文字も装飾として埋もれないよう12px以上にする。 */
 .project-kicker {
   position:absolute;
-  top:24px;
-  left:26px;
-  font-size:9px;
-  letter-spacing:2px;
+  top:20px;
+  left:24px;
+  right:24px;
+  font-size:var(--text-xs);
+  letter-spacing:0.1em;
+  line-height:1.4;
   font-weight:600;
 }
 
@@ -667,17 +679,18 @@ h2 {
 
 .project-wordmark>span {
   display:block;
-  font:10px/1.8 var(--sans);
-  letter-spacing:2px;
+  font:var(--text-xs)/1.6 var(--sans);
+  letter-spacing:0.08em;
   margin-top:8px;
 }
 
 .art-corner {
   position:absolute;
-  bottom:18px;
+  bottom:16px;
   right:24px;
-  font-size:8px;
-  letter-spacing:1.3px;
+  font-size:var(--text-xs);
+  letter-spacing:0.08em;
+  line-height:1.4;
 }
 
 .art-a11y {
@@ -1027,6 +1040,12 @@ h2 {
   padding-block:var(--space-3xl);
 }
 
+/* 同じ背景のセクションが続く箇所は、上下の余白が二重にならないようにする。 */
+.engineering + .exploring,
+.about + .recruiting {
+  padding-top:0;
+}
+
 .exploring-list {
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -1171,12 +1190,12 @@ h2 {
   display:grid;
   grid-template-columns:170px 1fr;
   gap:12px 20px;
-  font-size:12px;
+  font-size:var(--text-md);
   max-width:760px;
 }
 
 .contact-label {
-  font-size:12px;
+  font-size:var(--text-md);
   color:var(--panel-text);
   font-weight:600;
 }
@@ -1185,13 +1204,23 @@ h2 {
   color:var(--panel-muted);
 }
 
+/* 相談の主導線なので、本文と同じ大きさの枠付きリンクにする。 */
 .recruiting-contact a {
   grid-column:2;
   display:inline-flex;
   justify-self:start;
   align-items:center;
-  min-height:44px;
+  min-height:48px;
   gap:var(--space-2xs);
+  padding:10px 20px;
+  border:1px solid var(--panel-muted);
+  font-weight:600;
+  text-decoration:none;
+}
+
+.recruiting-contact a:hover {
+  background:var(--accent-hover);
+  text-decoration:underline;
 }
 
 .recruiting-decoration {
@@ -1482,7 +1511,7 @@ h2 {
     gap:var(--space-xl) var(--space-md);
   }
   .project-art {
-    height:230px;
+    min-height:230px;
   }
   .project-body {
     padding:22px 20px;
@@ -1500,7 +1529,7 @@ h2 {
   }
   .project-kicker {
     left:20px;
-    font-size:8px;
+    right:20px;
   }
   .project-link {
     font-size:var(--text-sm);
@@ -1655,7 +1684,6 @@ h2 {
     margin:13px 0 12px;
   }
   .strength-grid .text-link {
-    font-size:var(--text-xs);
     margin-top:12px;
   }
   .premises,.strengths,.projects,.engineering,.exploring,.approach,.about {
@@ -1674,7 +1702,7 @@ h2 {
     gap:var(--space-lg);
   }
   .project-art {
-    height:252px;
+    min-height:252px;
   }
   .project-wordmark {
     font-size:36px;
@@ -1709,9 +1737,6 @@ h2 {
   .related-work>.eyebrow {
     margin-bottom:0;
   }
-  .all-repos {
-    font-size:var(--text-xs);
-  }
   .approach {
     grid-template-columns:1fr;
     gap:32px;
@@ -1730,9 +1755,11 @@ h2 {
     padding:32px 24px;
   }
   .recruiting-contact {
-    font-size:12px;
     gap:12px;
     margin-top:28px;
+  }
+  .recruiting-contact a {
+    padding-inline:16px;
   }
   .recruiting-decoration {
     opacity:.25;
@@ -1940,7 +1967,8 @@ h2 {
   .recruiting-panel p,.recruiting-panel .eyebrow,.recruiting-panel .recruiting-lead,.contact-label {
     color:#111!important;
   }
-  .recruiting-contact {
+  .recruiting-contact,
+  .recruiting-contact a {
     border-color:#999;
   }
   .footer-top>div {
