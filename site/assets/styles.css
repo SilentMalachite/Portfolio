@@ -1461,14 +1461,25 @@ h2 {
   margin-top:28px;
   font-size:var(--text-md);
 }
-/* 事例を読み終えた位置から、相談例と連絡先へ進めるようにする。 */
-.case-contact {
-  margin-top:var(--space-md);
+/* 長い節を読み終えた位置から、相談例と連絡先へ戻れるようにする。 */
+.mid-cta {
+  margin-top:var(--space-lg);
+  max-width:72ch;
+}
+.mid-cta .text-link {
+  margin-top:var(--space-3xs);
   font-size:var(--text-md);
 }
-:lang(ja) .case-contact {
+:lang(ja) .mid-cta {
   word-break:keep-all;
   word-break:auto-phrase;
+}
+/* 節と節の間に置く場合は、前後の節と区切って余白を取る。 */
+.mid-cta-band {
+  margin-top:0;
+  max-width:none;
+  padding-block:var(--space-xl);
+  border-bottom:1px solid var(--line);
 }
 .case-details {
   margin:0 0 28px;

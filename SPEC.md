@@ -88,10 +88,10 @@ A11yLabの公開トップ `https://silentmalachite.github.io/A11yLab/` への直
 | 3 | 設計するときの前提 / `premises` | 中断、一度に扱う量、感覚や認知の違い、現場で続けられること、小さく試して確認する |
 | 4 | What I Do / `strengths` | 現場の観察、課題の分解、必要な技術の選択 |
 | 5 | Services / `services` | 依頼できる3項目と成果物例・期間・料金の目安、相談例・連絡先への導線 |
-| 6 | Case Studies / `projects` | 先頭にSoujoの短い導入。その後 Soujo → AlchemIIIF → Utsushi.Win → Hitoiki。分野の強調表示は表示の補助 |
+| 6 | Case Studies / `projects` | 先頭にSoujoの短い導入。その後 Soujo → AlchemIIIF → Utsushi.Win → Hitoiki。分野の強調表示は表示の補助。末尾に相談例・連絡先への短い案内 |
 | 6補足 | More Work & Writing / `engineering` | A11yLab・OmniArchive・SystemSoundsCaptions、全リポジトリ |
 | 6探求 | 現在の探求 / `exploring` | Ayumi・Tsumugi・BudgetTracker・MonoOto。ナビには入れない |
-| 7 | Workflow & Quality / `approach` | ご依頼の流れと品質基準。ヒアリング・課題整理（無料）→ スコープ定義・お見積り → 小さな試作と確認 → 品質検証（QA）と納品。What I Doとの重複を避けるため、2026-10-17に旧My Approachから置き換え、IDは維持 |
+| 7 | Workflow & Quality / `approach` | ご依頼の流れと品質基準。ヒアリング・課題整理（無料）→ スコープ定義・お見積り → 小さな試作と確認 → 品質検証（QA）と納品。What I Doとの重複を避けるため、2026-10-17に旧My Approachから置き換え、IDは維持。節の直後（Aboutの前）に相談例・連絡先への短い案内を置く |
 | 8 | About / `about` | 異なる現場から現在の設計思想への接続、運営者名、既存の略歴・資格、QA経験、強み、協業案内 |
 | 9 | Contact / `contact` | 6つの相談例、連絡時に伝える3項目の案内、件名・本文入りのメールボタンと副次的なSNSリンク、ご依頼に関する基本情報（運営・稼働形態・契約と書類・初回相談）。旧`recruiting`アンカーも維持 |
 | 10 | フッター | GitHub・A11yLab・言語切替・先頭へ、サイト更新日 |
