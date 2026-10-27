@@ -59,7 +59,7 @@ python3 scripts/check_site.py
 
 ## 原稿の出典
 
-確認日: **2026-10-17**（Hitoiki・Utsushi.WinのREADME）。SystemSoundsCaptionsは2026-10-10、Hitoikiの配布物は2026-09-29、Soujo・AlchemIIIF・Utsushi.Winの配布物・Tsumugi・Ayumi・MonoOtoは2026-09-14、A11yLab・OmniArchive・BudgetTrackerは2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
+確認日: **2026-10-17**（Hitoiki・Utsushi.WinのREADME）。Tsumugiは2026-10-27、SystemSoundsCaptionsは2026-10-10、Hitoikiの配布物は2026-09-29、Soujo・AlchemIIIF・Utsushi.Winの配布物・Ayumi・MonoOtoは2026-09-14、A11yLab・OmniArchive・BudgetTrackerは2026-09-10の確認に基づく。公開資料に書かれた用途・設計を紹介するもので、各アプリの動作をこのサイト作業で検証したという意味ではありません。
 
 | 対象 | 確認した公開資料 |
 | --- | --- |
@@ -70,7 +70,7 @@ python3 scripts/check_site.py
 | Soujo（層序） | [日本語README](https://github.com/SilentMalachite/Soujo/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/Soujo#readme)、[仕様書](https://github.com/SilentMalachite/Soujo/blob/main/SPEC.ja.md)。2026-09-14確認。日常の開発で使用し、引き継ぎ・再開の基盤として機能していることは2026-10-17の本人申告で、このサイト作業では検証していない |
 | Utsushi.Win | [README](https://github.com/SilentMalachite/Utsushi.Win#readme)、[v0.2.0](https://github.com/SilentMalachite/Utsushi.Win/releases/tag/v0.2.0)。2026-09-14に非プレリリースと `Utsushi-0.2.0-win-x64.zip` の添付を確認。GUI/CLIの変換工程と制限を照合。2026-10-17にREADMEで、GUIはパスワード付きPDFを変換できず、CLIの `--password` で扱えることを再確認 |
 | Hitoiki（一息） | [日本語README](https://github.com/SilentMalachite/hitoiki/blob/main/README.ja.md)、[英語README](https://github.com/SilentMalachite/hitoiki#readme)、[v0.2.0](https://github.com/SilentMalachite/hitoiki/releases/tag/v0.2.0)。2026-09-29に公開・非fork、非プレリリースと `hitoiki-0.2.0-arm64.dmg`、`hitoiki-0.2.0-arm64-mac.zip`、`hitoiki.Setup.0.2.0.exe` を確認。休憩表示、予定の重複統合、緊急解除、端末内の設定と通信なし、初回起動・入力ロック・設定方法の制限を照合。2026-10-17に英語READMEで、Esc 3秒長押しの緊急解除と、トレイから開く設定画面・JSONファイルでの設定を再確認 |
-| Tsumugi | [README](https://github.com/SilentMalachite/Tsumugi#readme)。記録・工賃計算と請求機能の未完成範囲を確認 |
+| Tsumugi | [README](https://github.com/SilentMalachite/Tsumugi#readme)。[v1.0.0](https://github.com/SilentMalachite/Tsumugi/releases/tag/v1.0.0)。2026-10-27に公開・非fork、非プレリリースと `Tsumugi-1.0.0-osx-arm64.zip`、`Tsumugi-1.0.0-win-x64.zip`、`SHA256SUMS.txt` を確認。フェーズ2（記録＋工賃計算、PDF帳票）を完成形とし、同梱の国保連請求データ生成を未検証の実験的機能とする記述と、Windows版の実機smoke未実施を照合 |
 | Ayumi | [README](https://github.com/SilentMalachite/Ayumi#readme)。個別支援計画・支援記録、PC1台とLANの構成、請求機能は対象外と確認 |
 | BudgetTracker | [README](https://github.com/SilentMalachite/BudgetTracker#readme) |
 | MonoOto | [README](https://github.com/SilentMalachite/MonoOto#readme)。ファイル再生対応の試作。実機継続再生・聴取評価の未検証を反映 |
@@ -80,6 +80,28 @@ python3 scripts/check_site.py
 現状は公開情報で分かる制作物と設計を説明しています。2026-09-11の本人指定に基づき、日英のAboutに略歴（考古学 → 高校講師 → 身体障がい者施設主任支援員 → 病院検査業務 → 就労継続支援B型職業指導員）と保有資格「産業カウンセラー」を掲載しています。2026-10-17の本人指定により、QA経験「MozillaのWebテストプロジェクトにコミュニティとして参加」と、福祉・医療・教育・文化財の現場経験を生かせるという強みを追加しました。参加時期・役割は未提供です。各作品の詳細な担当分担、在職期間、希望職種は未提供であり、架空の情報は入れていません。具体的な経験・役割を追記する場合は、本人の確認とWeb公開の意向を反映してください。
 
 Contactには、本人が公開用として指定したX・Facebookのリンクとメールアドレスを掲載しています。2026-10-17の本人指示により、メールアドレスは `[at]` 表記をやめ、そのまま表示しています。
+
+## Tsumugiを補足事例へ移動（2026-10-27）
+
+本人の指示で、配布版を出したTsumugiを「現在の探求」から More Work & Writing の4番目へ移した。日英とも、SystemSoundsCaptionsと同じ形で状態「配布版あり」、技術表示 C# / .NET / Avalonia、リリース一覧へのリンクを付けた。紹介文の内容は前回と同じで、Windows版の実機確認前と請求機能が実験的であることを保持している。ID `project-tsumugi` と分野タグ（福祉・業務整理）は維持した。現在の探求は Ayumi・BudgetTracker・MonoOto の3件になり、説明文「開発中、または実験段階のもの」と状態表示が一致する。`SPEC.md` の補足・探求の一覧と件数（補足4件・探求3件）も更新した。
+
+確認: `python3 scripts/check_site.py` と `git diff --check` が成功。
+
+## Tsumugi v1.0.0の配布版（2026-10-27）
+
+本人からリリースと配布物の完成の連絡を受け、v1.0.0（非プレリリース）と添付物 `Tsumugi-1.0.0-osx-arm64.zip`・`Tsumugi-1.0.0-win-x64.zip`・`SHA256SUMS.txt` を確認した。日英の状態表示を「配布版あり」／"Download available" に変え、紹介文に macOS（Apple silicon）・Windows 向けの配布版があることを加えた。リリースノートに Windows 版は実機 smoke 未実施とあるため、その旨を日英に1文ずつ書いた。同梱の国保連請求データ生成は引き続き実験的機能と明記している。掲載位置は「現在の探求」のまま。
+
+確認: `python3 scripts/check_site.py` と `git diff --check` が成功。配布物の動作はこのサイト作業で検証していない。ブラウザでの表示は未確認。
+
+## Tsumugiのスコープ確定とリリース準備中の表示（2026-10-27）
+
+TsumugiのREADMEが2026-10-27に更新され、フェーズ2（記録＋工賃計算、工賃明細・支払一覧のPDF出力）を当面の完成形とし、国保連請求データ生成を実験的機能・将来拡張と位置づけた。本人から「これからリリースする」との指示を受け、日英の「現在の探求」のTsumugiを更新した。
+
+- 状態表示: 「開発中」→「リリース準備中」、英語は "In development" → "Preparing release"。根拠は本人の申告で、配布物はまだ確認していない。リリース後に配布物を確認してから「配布版あり」へ変える。
+- 紹介文: 記録と工賃計算の端末内完結とPDF出力までを完成範囲として書き、国保連請求は公式システムで未検証の実験的機能にとどめていると明記した。請求機能を利用可能とは書いていない。
+- `SPEC.md` の編集上の制約、`AGENTS.md` の状態の記述、上記「原稿の出典」の確認日と照合内容を合わせて更新した。
+
+確認: `python3 scripts/check_site.py` と `git diff --check` が成功。ブラウザでの表示は未確認。
 
 ## Hitoikiの作者自身の利用（2026-10-17、`d892e30`）
 
